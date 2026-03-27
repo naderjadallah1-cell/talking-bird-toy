@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>نطاطة الأطفال المضيئة | نطاطة الباندا</title>
-  <meta name="description" content="صفحة هبوط احترافية لمنتج نطاطة الأطفال المضيئة على شكل باندا، بسعر 65 شيكل بدل 99 شيكل مع خصم 9% عند شراء حبتين." />
+  <meta name="description" content="نطاطة الأطفال المضيئة على شكل باندا بسعر 65 شيكل بدل 99 شيكل مع خصم 9% عند شراء حبتين." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -31,8 +31,7 @@
     });
   </script>
   <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=536244607937266&ev=PageView&noscript=1"/>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=536244607937266&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
@@ -49,7 +48,6 @@
       --secondary-dark:#6b9a63;
       --accent:#ff7a00;
       --accent-soft:#fff1df;
-      --danger:#f14a4a;
       --success:#0f8f4e;
       --success-soft:#ecfff4;
       --shadow:0 18px 40px rgba(0,0,0,.08);
@@ -149,6 +147,8 @@
       font-weight:900;
       box-shadow:0 14px 28px rgba(107,154,99,.28);
       transition:.25s ease;
+      border:none;
+      cursor:pointer;
     }
     .header-btn:hover{transform:translateY(-2px)}
 
@@ -262,16 +262,6 @@
       position:relative;
       overflow:hidden;
     }
-    .price-box::after{
-      content:"";
-      position:absolute;
-      top:-40px;
-      left:-40px;
-      width:140px;
-      height:140px;
-      background:radial-gradient(circle, rgba(255,255,255,.92), transparent 70%);
-      pointer-events:none;
-    }
     .price-kicker{font-size:16px;font-weight:900;color:#628b59;margin-bottom:10px}
     .price-row{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:8px}
     .old-price{font-size:20px;color:#9a9a9a;text-decoration:line-through;font-weight:800}
@@ -310,18 +300,7 @@
       cursor:pointer;
       transition:.25s ease;
       text-align:center;
-      position:relative;
-      overflow:hidden;
     }
-    .btn::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.24) 50%,transparent 65%);
-      transform:translateX(-120%);
-      transition:transform .75s ease;
-    }
-    .btn:hover::before{transform:translateX(120%)}
     .btn-primary{
       flex:1.25;
       background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
@@ -345,7 +324,7 @@
       background:#111;
       box-shadow:0 24px 50px rgba(0,0,0,.18);
     }
-    .hero-media video{
+    .hero-media video,.hero-media img{
       position:absolute;
       inset:0;
       width:100%;
@@ -362,19 +341,6 @@
       z-index:1;
       pointer-events:none;
     }
-    .hero-media::after{
-      content:"";
-      position:absolute;
-      top:-8%;
-      left:-16%;
-      width:44%;
-      height:128%;
-      background:linear-gradient(120deg,transparent 28%,rgba(255,255,255,.20) 48%,transparent 66%);
-      transform:translateX(-130%) rotate(6deg);
-      animation:shine 7s linear infinite;
-      z-index:2;
-    }
-    @keyframes shine{0%{transform:translateX(-130%) rotate(6deg)}38%,100%{transform:translateX(220%) rotate(6deg)}}
     .media-badges{
       position:absolute;
       top:16px;
@@ -438,61 +404,29 @@
       border-radius:30px;
       padding:24px;
       box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
     }
-    .section-card::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top left, rgba(134,183,125,.06), transparent 22%),
-        radial-gradient(circle at bottom right, rgba(255,122,0,.05), transparent 18%);
-      pointer-events:none;
-    }
-    .section-title,.section-subtitle,.features-grid,.reasons-grid,.reviews-grid,.faq-grid,.spec-grid,.section-cta,.benefits-band{position:relative;z-index:1}
     .section-title{margin:0 0 10px;font-size:32px;color:#111}
     .section-subtitle{margin:0 0 20px;color:#666;font-size:16px;line-height:1.95}
 
-    .benefits-band{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-    }
-    .benefit-block{
-      background:linear-gradient(135deg,#fff,#f7fbf4);
-      border:1px solid #e0ead9;
-      border-radius:22px;
-      padding:18px;
-      box-shadow:0 10px 20px rgba(0,0,0,.04);
-    }
-    .benefit-block strong{display:block;margin-bottom:8px;font-size:18px;color:#111}
-    .benefit-block p{margin:0;color:#555;line-height:1.9;font-size:15px;font-weight:700}
-
-    .features-grid,.reasons-grid,.reviews-grid,.faq-grid,.spec-grid{
+    .features-grid,.reviews-grid,.faq-grid{
       display:grid;
       gap:16px;
     }
     .features-grid{grid-template-columns:repeat(3,1fr)}
-    .reasons-grid{grid-template-columns:repeat(2,1fr)}
     .reviews-grid{grid-template-columns:repeat(3,1fr)}
     .faq-grid{grid-template-columns:repeat(2,1fr)}
-    .spec-grid{grid-template-columns:repeat(2,1fr)}
 
-    .feature,.reason,.review,.faq-item,.spec-item{
+    .feature,.review,.faq-item{
       background:#fff;
       border:1px solid #ece5d7;
       border-radius:22px;
       padding:18px;
       box-shadow:0 10px 20px rgba(0,0,0,.04);
-      transition:.25s ease;
     }
-    .feature:hover,.reason:hover,.review:hover,.faq-item:hover,.spec-item:hover{transform:translateY(-4px)}
-    .feature h3,.reason h3,.spec-item h3{margin:0 0 8px;font-size:20px;color:#111}
-    .feature p,.reason p,.review p,.faq-item p,.spec-item p{margin:0;color:#555;line-height:1.95;font-size:15px;font-weight:700}
+    .feature h3{margin:0 0 8px;font-size:20px;color:#111}
+    .feature p,.review p,.faq-item p{margin:0;color:#555;line-height:1.95;font-size:15px;font-weight:700}
     .review .stars{font-size:20px;margin-bottom:10px}
     .review-name{margin-top:12px;font-weight:900;color:#111}
-    .review-tag{font-size:13px;color:#7a7a7a;margin-top:4px}
     .faq-item strong{display:block;margin-bottom:8px;font-size:17px;color:#111}
 
     .section-cta{margin-top:18px;text-align:center}
@@ -539,103 +473,6 @@
     }
     .quick-note{margin-top:8px;font-size:13px;color:rgba(255,255,255,.82);font-weight:700;line-height:1.8}
 
-    .order-box{
-      background:linear-gradient(135deg,#fff,#f9fbf7);
-      border:1px solid #dee8d9;
-      border-radius:32px;
-      padding:24px;
-      box-shadow:0 18px 36px rgba(0,0,0,.06);
-      position:relative;
-      overflow:hidden;
-    }
-    .order-box::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at top left, rgba(134,183,125,.07), transparent 22%),
-        radial-gradient(circle at bottom right, rgba(255,122,0,.04), transparent 18%);
-      pointer-events:none;
-    }
-    .order-top,.form-grid,.price-summary,.small-note{position:relative;z-index:1}
-    .order-top p{margin:8px 0 0;color:#666;font-size:15px;line-height:1.9}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    input,textarea,select{
-      width:100%;
-      padding:15px 14px;
-      border-radius:16px;
-      border:1px solid #d7d7d7;
-      background:#fff;
-      font-size:16px;
-      text-align:right;
-      direction:rtl;
-      outline:none;
-      transition:.2s ease;
-    }
-    input:focus,textarea:focus,select:focus{
-      border-color:#86b77d;
-      box-shadow:0 0 0 4px rgba(134,183,125,.12);
-    }
-    textarea{min-height:110px;resize:vertical;grid-column:1 / -1}
-
-    .price-summary{
-      margin-top:16px;
-      background:#fff;
-      border:1px solid #e9e3d7;
-      border-radius:22px;
-      padding:16px;
-      box-shadow:0 10px 22px rgba(0,0,0,.04);
-    }
-    .price-summary-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      padding:9px 0;
-      border-bottom:1px solid #f2ede3;
-      font-size:15px;
-      color:#444;
-      font-weight:700;
-    }
-    .price-summary-row:last-child{border-bottom:none}
-    .price-summary-total{font-size:20px;font-weight:900;color:#111}
-    .discount-row{color:#0f8f4e}
-    .submit-btn{
-      width:100%;
-      margin-top:14px;
-      border:none;
-      border-radius:18px;
-      padding:18px;
-      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
-      color:#fff;
-      font-size:19px;
-      font-weight:900;
-      cursor:pointer;
-      box-shadow:0 18px 34px rgba(107,154,99,.26);
-      transition:.25s ease;
-    }
-    .submit-btn:hover{transform:translateY(-2px)}
-    .small-note{margin-top:12px;text-align:center;color:#777;font-size:13px;line-height:1.8;font-weight:800}
-
-    .activity-popup{
-      position:fixed;
-      right:16px;
-      bottom:160px;
-      z-index:1300;
-      background:#111;
-      color:#fff;
-      padding:14px 16px;
-      border-radius:14px;
-      font-size:14px;
-      font-weight:800;
-      box-shadow:0 14px 28px rgba(0,0,0,.2);
-      opacity:0;
-      transform:translateY(20px);
-      transition:all .35s ease;
-      max-width:300px;
-      line-height:1.6;
-    }
-    .activity-popup.show{opacity:1;transform:translateY(0)}
     .floating-wa{
       position:fixed;
       left:18px;
@@ -651,9 +488,8 @@
       font-size:28px;
       box-shadow:0 12px 26px rgba(0,0,0,.2);
       z-index:999;
-      transition:.25s ease;
     }
-    .floating-wa:hover{transform:translateY(-3px) scale(1.04)}
+
     .sticky-cta{position:fixed;right:12px;left:12px;bottom:12px;z-index:1200;display:none}
     .sticky-cta a{
       display:flex;
@@ -666,19 +502,12 @@
       font-size:18px;
       font-weight:900;
       box-shadow:0 16px 34px rgba(107,154,99,.28);
-      animation:pulse 2.2s infinite;
     }
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
 
     .site-footer{text-align:center;padding:22px 16px 110px;color:#777;font-size:14px;font-weight:700}
 
-    .reveal-up,.reveal-scale{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease}
-    .reveal-scale{transform:translateY(24px) scale(.98)}
-    .reveal-up.show,.reveal-scale.show{opacity:1;transform:none}
-
     @media (max-width:980px){
-      .hero-grid,.features-grid,.reviews-grid,.benefits-band,.faq-grid,.spec-grid{grid-template-columns:1fr}
-      .reasons-grid,.form-grid{grid-template-columns:1fr}
+      .hero-grid,.features-grid,.reviews-grid,.faq-grid{grid-template-columns:1fr}
       .trust-strip{grid-template-columns:1fr 1fr}
       .hero-title{font-size:38px}
       .usp-grid{grid-template-columns:1fr}
@@ -690,13 +519,12 @@
       .shipping-bar{gap:10px;font-size:13px}
       .header-inner{padding:12px 14px}
       .brand strong{font-size:19px}
-      .hero-card,.section-card,.order-box{border-radius:24px;padding:18px}
+      .hero-card,.section-card{border-radius:24px;padding:18px}
       .hero-title{font-size:30px}
       .new-price{font-size:42px}
       .quick-form{flex-direction:column}
       .trust-strip{grid-template-columns:1fr}
       .hero-media{min-height:300px}
-      .activity-popup{right:12px;bottom:150px;max-width:255px}
     }
   </style>
 </head>
@@ -723,7 +551,7 @@
       </div>
       <div class="header-actions">
         <div class="mini-pill">خصم 9% عند شراء حبتين</div>
-        <a href="#order" class="header-btn track-initiate-checkout">اطلب الآن</a>
+        <a href="order.html" class="header-btn track-initiate-checkout">اطلب الآن</a>
       </div>
     </div>
   </header>
@@ -731,7 +559,7 @@
   <section class="quick-order">
     <div class="container">
       <div class="quick-order-box">
-        <div class="quick-title">🔥 اطلب بسرعة ثم أكمل بيانات الشحن</div>
+        <div class="quick-title">🔥 ابدأ الطلب بسرعة ثم أكمل بيانات الشحن</div>
         <form id="quickOrderForm" class="quick-form">
           <input type="text" id="quickName" placeholder="الاسم" required>
           <input type="tel" id="quickPhone" placeholder="رقم الهاتف" required>
@@ -744,7 +572,7 @@
 
   <main>
     <div class="container hero-wrap">
-      <section class="reveal-scale">
+      <section>
         <div class="hero-card">
           <div class="badge-row">
             <div class="badge">🐼 تصميم باندا محبوب</div>
@@ -790,7 +618,7 @@
               </div>
 
               <div class="cta-row">
-                <a href="#order" class="btn btn-primary track-initiate-checkout">🔥 احجز طلبك الآن</a>
+                <a href="order.html" class="btn btn-primary track-initiate-checkout">🔥 احجز طلبك الآن</a>
                 <a href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن نطاطة الأطفال المضيئة" target="_blank" class="btn btn-secondary track-whatsapp">اطلب عبر واتساب</a>
               </div>
               <div class="cta-note">✔ كمية محدودة &nbsp; ✔ شحن سريع &nbsp; ✔ مناسبة كهدية</div>
@@ -800,6 +628,7 @@
               <video autoplay muted loop playsinline preload="auto" poster="panda-cover.jpg">
                 <source src="video.mp4" type="video/mp4">
               </video>
+              <img src="panda-cover.jpg" alt="نطاطة الباندا" onerror="this.style.display='none';">
 
               <div class="media-badges">
                 <div class="media-chip">🔥 منتج جديد</div>
@@ -821,109 +650,31 @@
       </section>
     </div>
 
-    <section class="section reveal-up">
+    <section class="section">
       <div class="container">
         <div class="section-card">
           <h2 class="section-title">لماذا يحب الأطفال هذه النطاطة؟</h2>
           <p class="section-subtitle">لأنها تجمع بين الشكل اللطيف، الحركة، والإضاءة في لعبة واحدة تعطي الطفل وقتًا ممتعًا وتساعده على النشاط بدل الجلوس الطويل.</p>
-          <div class="benefits-band">
-            <div class="benefit-block">
-              <strong>حركة أكثر</strong>
+          <div class="features-grid">
+            <div class="feature">
+              <h3>حركة أكثر</h3>
               <p>تشجع الطفل على القفز واللعب والنشاط اليومي بطريقة ممتعة وآمنة.</p>
             </div>
-            <div class="benefit-block">
-              <strong>جو مرح</strong>
+            <div class="feature">
+              <h3>جو مرح</h3>
               <p>الإضاءة المضافة تعطي تجربة لعب أجمل وتزيد الحماس لدى الطفل.</p>
             </div>
-            <div class="benefit-block">
-              <strong>هدية ناجحة</strong>
+            <div class="feature">
+              <h3>هدية ناجحة</h3>
               <p>خيار جميل جدًا لأي مناسبة لأن الأطفال يحبون شكلها وتفاعلهم معها سريع.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="#order" class="track-initiate-checkout">اطلب الآن قبل نفاد الكمية</a></div>
+          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">اطلب الآن قبل نفاد الكمية</a></div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal-up">
-      <div class="container">
-        <div class="section-card">
-          <h2 class="section-title">أهم مميزات المنتج</h2>
-          <p class="section-subtitle">كل شيء في هذه النطاطة مصمم ليمنح الطفل متعة أكبر ويمنح الأهل راحة أكثر عند اختيار الهدية المناسبة.</p>
-          <div class="features-grid">
-            <div class="feature">
-              <h3>تصميم باندا جذاب</h3>
-              <p>شكل محبب للأطفال يلفت الانتباه فورًا ويجعل المنتج مناسبًا للبنات والأولاد.</p>
-            </div>
-            <div class="feature">
-              <h3>إضاءة ممتعة</h3>
-              <p>تضيف أجواء لعب أجمل وتزيد من حماس الطفل أثناء الحركة والقفز.</p>
-            </div>
-            <div class="feature">
-              <h3>تشجع النشاط</h3>
-              <p>تساعد الطفل على تفريغ الطاقة بطريقة ممتعة بدل الجلوس الطويل أو الملل.</p>
-            </div>
-          </div>
-          <div class="section-cta"><a href="#order" class="track-initiate-checkout">أريد الاستفادة من العرض</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal-up">
-      <div class="container">
-        <div class="section-card">
-          <h2 class="section-title">مناسبة جدًا لهذه الحالات</h2>
-          <div class="reasons-grid">
-            <div class="reason">
-              <h3>للأطفال كثيري الحركة</h3>
-              <p>إذا كان الطفل يحب اللعب والقفز والحركة، فهذه النطاطة تعطيه مساحة ممتعة لتفريغ طاقته.</p>
-            </div>
-            <div class="reason">
-              <h3>كهدية مضمونة</h3>
-              <p>تصميمها اللطيف وسعرها الحالي يجعلها خيارًا ممتازًا للهدايا والمناسبات.</p>
-            </div>
-            <div class="reason">
-              <h3>للبيت أو الزيارة</h3>
-              <p>قطعة ممتعة يمكن استخدامها للعب اليومي وتشغل الطفل بشيء يحبه.</p>
-            </div>
-            <div class="reason">
-              <h3>لمن يريد عرضًا قويًا</h3>
-              <p>السعر الحالي مميز جدًا، ومع خصم الحبتين تصبح الصفقة أفضل وأكثر جاذبية.</p>
-            </div>
-          </div>
-          <div class="section-cta"><a href="#order" class="track-initiate-checkout">احجز طلبك الآن</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal-up">
-      <div class="container">
-        <div class="section-card">
-          <h2 class="section-title">مواصفات سريعة</h2>
-          <div class="spec-grid">
-            <div class="spec-item">
-              <h3>اسم المنتج</h3>
-              <p>نطاطة الأطفال المضيئة</p>
-            </div>
-            <div class="spec-item">
-              <h3>التصميم</h3>
-              <p>على شكل باندا لطيف ومحبوب للأطفال</p>
-            </div>
-            <div class="spec-item">
-              <h3>السعر الحالي</h3>
-              <p>65 شيكل بدل 99 شيكل</p>
-            </div>
-            <div class="spec-item">
-              <h3>العرض الإضافي</h3>
-              <p>خصم 9% عند شراء حبتين</p>
-            </div>
-          </div>
-          <div class="section-cta"><a href="#order" class="track-initiate-checkout">اطلب قبل نفاد العرض</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal-up">
+    <section class="section">
       <div class="container">
         <div class="section-card">
           <h2 class="section-title">⭐ آراء العملاء</h2>
@@ -932,38 +683,35 @@
               <div class="stars">★★★★★</div>
               <p>شكل الباندا جميل جدًا، وبنتي انبسطت فيها من أول دقيقة. الإضاءة أعطتها متعة أكثر.</p>
               <div class="review-name">أم ليا</div>
-              <div class="review-tag">طلبت حبة كهدية</div>
             </div>
             <div class="review">
               <div class="stars">★★★★★</div>
               <p>منتج لطيف وسعره ممتاز مقارنة بالشكل والمتعة التي يعطيها للطفل.</p>
               <div class="review-name">محمد</div>
-              <div class="review-tag">شراء للبيت</div>
             </div>
             <div class="review">
               <div class="stars">★★★★★</div>
               <p>أكثر شيء أعجبني أنه يشجع الطفل على الحركة بدل الملل، والخصم على الحبتين كان مناسب.</p>
               <div class="review-name">سارة</div>
-              <div class="review-tag">طلبت حبتين</div>
             </div>
           </div>
-          <div class="section-cta"><a href="#order" class="track-initiate-checkout">أريد الطلب الآن</a></div>
+          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">أريد الطلب الآن</a></div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal-up">
+    <section class="section">
       <div class="container">
         <div class="section-card">
           <h2 class="section-title">أسئلة شائعة</h2>
           <div class="faq-grid">
             <div class="faq-item">
               <strong>هل الدفع عند الاستلام متاح؟</strong>
-              <p>نعم، الدفع عند الاستلام متاح، ويمكنك إتمام الطلب مباشرة عبر واتساب.</p>
+              <p>نعم، الدفع عند الاستلام متاح، ويمكنك إتمام الطلب مباشرة عبر صفحة الطلب أو واتساب.</p>
             </div>
             <div class="faq-item">
               <strong>هل يظهر السعر النهائي قبل الإرسال؟</strong>
-              <p>نعم، بمجرد اختيار الكمية والمنطقة سيظهر لك مجموع المنتج والتوصيل والخصم إن وجد.</p>
+              <p>نعم، في صفحة الطلب سيظهر لك مجموع المنتج والتوصيل والخصم قبل تأكيد الطلب.</p>
             </div>
             <div class="faq-item">
               <strong>هل يوجد خصم على أكثر من حبة؟</strong>
@@ -974,140 +722,23 @@
               <p>بالتأكيد، لأنها تجمع بين الشكل الجميل والمتعة والحركة، وهذا يجعلها هدية محببة للأطفال.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="#order" class="track-initiate-checkout">انتقل إلى نموذج الطلب</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal-scale" id="order">
-      <div class="container">
-        <div class="order-box">
-          <div class="order-top">
-            <h2 class="section-title">اطلب الآن</h2>
-            <p>املأ البيانات التالية، اختر الكمية والمنطقة، وسيظهر لك السعر النهائي مباشرة قبل إرسال الطلب عبر واتساب.</p>
-          </div>
-
-          <form id="orderForm">
-            <div class="form-grid">
-              <input type="text" name="name" placeholder="الاسم الكامل" required>
-              <input type="tel" name="phone" placeholder="رقم الهاتف" required>
-              <input type="text" name="city" placeholder="المدينة" required>
-              <input type="text" name="address" placeholder="العنوان الكامل" required>
-
-              <select name="quantity" id="quantitySelect" required>
-                <option value="1">حبة واحدة - 65 شيكل</option>
-                <option value="2">حبتين - خصم 9%</option>
-              </select>
-
-              <select name="region" id="regionSelect" required>
-                <option value="">اختر المنطقة</option>
-                <option value="الضفة الغربية" data-delivery="20">الضفة الغربية - 20 شيكل</option>
-                <option value="القدس" data-delivery="30">القدس - 30 شيكل</option>
-                <option value="الداخل" data-delivery="70">الداخل - 70 شيكل</option>
-              </select>
-
-              <textarea name="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
-            </div>
-
-            <div class="price-summary">
-              <div class="price-summary-row">
-                <span>سعر المنتجات</span>
-                <strong id="productPrice">65 شيكل</strong>
-              </div>
-              <div class="price-summary-row discount-row">
-                <span>الخصم</span>
-                <strong id="discountPrice">0 شيكل</strong>
-              </div>
-              <div class="price-summary-row">
-                <span>سعر التوصيل</span>
-                <strong id="deliveryPrice">—</strong>
-              </div>
-              <div class="price-summary-row price-summary-total">
-                <span>المجموع النهائي</span>
-                <strong id="totalPrice">65 شيكل</strong>
-              </div>
-            </div>
-
-            <button type="submit" class="submit-btn">تأكيد الطلب الآن عبر واتساب</button>
-          </form>
-
-          <div class="small-note">✅ السعر الأساسي للحبة 65 شيكل — ✅ خصم 9% عند شراء حبتين — ✅ التوصيل يُحسب حسب المنطقة</div>
+          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">انتقل إلى صفحة الطلب</a></div>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="activity-popup" id="activityPopup"></div>
-
   <a class="floating-wa track-whatsapp" href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن نطاطة الأطفال المضيئة" target="_blank" title="واتساب">💬</a>
 
   <div class="sticky-cta">
-    <a href="#order" class="track-initiate-checkout">🔥 اطلب الآن قبل نفاد الكمية</a>
+    <a href="order.html" class="track-initiate-checkout">🔥 اطلب الآن قبل نفاد الكمية</a>
   </div>
 
   <footer class="site-footer">جميع الحقوق محفوظة 2026</footer>
 
   <script>
-    const merchantWhatsApp = "970592533948";
-    const basePrice = 65;
-    const twoPiecesDiscountRate = 0.09;
-
     function trackEvent(eventName, params = {}) {
-      if (typeof fbq === 'function') {
-        fbq('track', eventName, params);
-      }
-    }
-
-    function formatPrice(value) {
-      const fixed = Number(value).toFixed(2);
-      return fixed.endsWith('.00') ? Number(value).toFixed(0) + ' شيكل' : fixed + ' شيكل';
-    }
-
-    function getQuantity() {
-      return Number(document.getElementById('quantitySelect').value || 1);
-    }
-
-    function getDeliveryPrice() {
-      const regionSelect = document.getElementById('regionSelect');
-      const selectedOption = regionSelect.options[regionSelect.selectedIndex];
-      return selectedOption && selectedOption.dataset.delivery ? Number(selectedOption.dataset.delivery) : 0;
-    }
-
-    function calculateOrder() {
-      const quantity = getQuantity();
-      const subtotal = quantity * basePrice;
-      const discount = quantity === 2 ? subtotal * twoPiecesDiscountRate : 0;
-      const delivery = getDeliveryPrice();
-      const total = subtotal - discount + delivery;
-      return { quantity, subtotal, discount, delivery, total };
-    }
-
-    function updatePrices() {
-      const order = calculateOrder();
-      document.getElementById('productPrice').textContent = formatPrice(order.subtotal);
-      document.getElementById('discountPrice').textContent = order.discount ? ('- ' + formatPrice(order.discount)) : '0 شيكل';
-      document.getElementById('deliveryPrice').textContent = order.delivery ? formatPrice(order.delivery) : '—';
-      document.getElementById('totalPrice').textContent = formatPrice(order.total);
-    }
-
-    function openWhatsAppOrder(data) {
-      const message =
-        'طلب جديد - نطاطة الأطفال المضيئة%0A' +
-        '------------------------%0A' +
-        'الاسم: ' + encodeURIComponent(data.name) + '%0A' +
-        'رقم الهاتف: ' + encodeURIComponent(data.phone) + '%0A' +
-        'المدينة: ' + encodeURIComponent(data.city) + '%0A' +
-        'العنوان: ' + encodeURIComponent(data.address) + '%0A' +
-        'الكمية: ' + encodeURIComponent(data.quantity + ' حبة') + '%0A' +
-        'المنطقة: ' + encodeURIComponent(data.region) + '%0A' +
-        'ملاحظات: ' + encodeURIComponent(data.notes) + '%0A' +
-        'سعر المنتجات: ' + encodeURIComponent(formatPrice(data.subtotal)) + '%0A' +
-        'الخصم: ' + encodeURIComponent(data.discount ? formatPrice(data.discount) : '0 شيكل') + '%0A' +
-        'سعر التوصيل: ' + encodeURIComponent(data.delivery ? formatPrice(data.delivery) : '0 شيكل') + '%0A' +
-        'المجموع النهائي: ' + encodeURIComponent(formatPrice(data.total));
-
-      const whatsappUrl = 'https://wa.me/' + merchantWhatsApp + '?text=' + message;
-      window.open(whatsappUrl, '_blank');
+      if (typeof fbq === 'function') fbq('track', eventName, params);
     }
 
     document.querySelectorAll('.track-initiate-checkout').forEach(function(element) {
@@ -1129,7 +760,6 @@
           content_category: 'Kids Toy',
           method: 'whatsapp'
         });
-
         trackEvent('Contact', {
           content_name: 'WhatsApp Inquiry Click',
           method: 'whatsapp'
@@ -1137,71 +767,15 @@
       });
     });
 
-    document.getElementById('regionSelect').addEventListener('change', updatePrices);
-    document.getElementById('quantitySelect').addEventListener('change', function() {
-      updatePrices();
-      const order = calculateOrder();
-
-      trackEvent('AddToCart', {
-        content_name: 'نطاطة الأطفال المضيئة - نطاطة الباندا',
-        content_category: 'Kids Toy',
-        content_type: 'product',
-        num_items: order.quantity,
-        currency: 'ILS',
-        value: order.subtotal
-      });
-    });
-
-    updatePrices();
-
-    document.getElementById('orderForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const calc = calculateOrder();
-
-      trackEvent('Lead', {
-        content_name: 'Order Form Submitted',
-        content_category: 'Kids Toy',
-        num_items: calc.quantity,
-        currency: 'ILS',
-        value: calc.total
-      });
-
-      trackEvent('Contact', {
-        content_name: 'Order Sent to WhatsApp',
-        method: 'whatsapp'
-      });
-
-      trackEvent('Purchase', {
-        content_name: 'نطاطة الأطفال المضيئة - نطاطة الباندا',
-        content_category: 'Kids Toy',
-        content_type: 'product',
-        num_items: calc.quantity,
-        currency: 'ILS',
-        value: calc.total
-      });
-
-      openWhatsAppOrder({
-        name: form.name.value.trim(),
-        phone: form.phone.value.trim(),
-        city: form.city.value.trim(),
-        address: form.address.value.trim(),
-        quantity: calc.quantity,
-        region: form.region.value.trim(),
-        notes: form.notes.value.trim() || 'لا يوجد',
-        subtotal: calc.subtotal,
-        discount: calc.discount,
-        delivery: calc.delivery,
-        total: calc.total
-      });
-    });
-
-    document.getElementById('quickOrderForm').addEventListener('submit', function (e) {
+    document.getElementById('quickOrderForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const quickName = document.getElementById('quickName').value.trim();
       const quickPhone = document.getElementById('quickPhone').value.trim();
-      const orderSection = document.getElementById('order');
-      const orderForm = document.getElementById('orderForm');
+
+      localStorage.setItem('pandaQuickLead', JSON.stringify({
+        name: quickName,
+        phone: quickPhone
+      }));
 
       trackEvent('AddToCart', {
         content_name: 'Quick Order Started',
@@ -1217,42 +791,8 @@
         value: 65
       });
 
-      if (orderForm && orderSection) {
-        orderForm.name.value = quickName;
-        orderForm.phone.value = quickPhone;
-        orderSection.scrollIntoView({ behavior: 'smooth' });
-      }
+      window.location.href = 'order.html';
     });
-
-    const animatedElements = document.querySelectorAll('.reveal-up, .reveal-scale');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14, rootMargin: '0px 0px -30px 0px' });
-    animatedElements.forEach((el) => observer.observe(el));
-
-    const popup = document.getElementById('activityPopup');
-    const messages = [
-      '🔥 هناك طلبات جديدة على نطاطة الباندا الآن',
-      '⏳ الكمية المحدودة قد تنفد سريعًا',
-      '🎁 كثير من العملاء يطلبونها كهدية',
-      '✨ الإضاءة من أكثر المميزات التي تجذب الأطفال',
-      '💥 خصم الحبتين نشط الآن على الصفحة'
-    ];
-
-    function showPopup() {
-      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-      popup.textContent = randomMessage;
-      popup.classList.add('show');
-      setTimeout(() => popup.classList.remove('show'), 4000);
-    }
-
-    showPopup();
-    setInterval(showPopup, 10000);
   </script>
 </body>
 </html>
