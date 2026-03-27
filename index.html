@@ -8,6 +8,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '536244607937266');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'نطاطة الأطفال المضيئة - نطاطة الباندا',
+      content_category: 'Kids Toy',
+      content_type: 'product',
+      currency: 'ILS',
+      value: 65
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=536244607937266&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
     :root{
       --bg:#f6f3eb;
@@ -695,7 +723,7 @@
       </div>
       <div class="header-actions">
         <div class="mini-pill">خصم 9% عند شراء حبتين</div>
-        <a href="#order" class="header-btn">اطلب الآن</a>
+        <a href="#order" class="header-btn track-initiate-checkout">اطلب الآن</a>
       </div>
     </div>
   </header>
@@ -762,8 +790,8 @@
               </div>
 
               <div class="cta-row">
-                <a href="#order" class="btn btn-primary">🔥 احجز طلبك الآن</a>
-                <a href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن نطاطة الأطفال المضيئة" target="_blank" class="btn btn-secondary">اطلب عبر واتساب</a>
+                <a href="#order" class="btn btn-primary track-initiate-checkout">🔥 احجز طلبك الآن</a>
+                <a href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن نطاطة الأطفال المضيئة" target="_blank" class="btn btn-secondary track-whatsapp">اطلب عبر واتساب</a>
               </div>
               <div class="cta-note">✔ كمية محدودة &nbsp; ✔ شحن سريع &nbsp; ✔ مناسبة كهدية</div>
             </div>
@@ -812,7 +840,7 @@
               <p>خيار جميل جدًا لأي مناسبة لأن الأطفال يحبون شكلها وتفاعلهم معها سريع.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="#order">اطلب الآن قبل نفاد الكمية</a></div>
+          <div class="section-cta"><a href="#order" class="track-initiate-checkout">اطلب الآن قبل نفاد الكمية</a></div>
         </div>
       </div>
     </section>
@@ -836,7 +864,7 @@
               <p>تساعد الطفل على تفريغ الطاقة بطريقة ممتعة بدل الجلوس الطويل أو الملل.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="#order">أريد الاستفادة من العرض</a></div>
+          <div class="section-cta"><a href="#order" class="track-initiate-checkout">أريد الاستفادة من العرض</a></div>
         </div>
       </div>
     </section>
@@ -863,7 +891,7 @@
               <p>السعر الحالي مميز جدًا، ومع خصم الحبتين تصبح الصفقة أفضل وأكثر جاذبية.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="#order">احجز طلبك الآن</a></div>
+          <div class="section-cta"><a href="#order" class="track-initiate-checkout">احجز طلبك الآن</a></div>
         </div>
       </div>
     </section>
@@ -890,7 +918,7 @@
               <p>خصم 9% عند شراء حبتين</p>
             </div>
           </div>
-          <div class="section-cta"><a href="#order">اطلب قبل نفاد العرض</a></div>
+          <div class="section-cta"><a href="#order" class="track-initiate-checkout">اطلب قبل نفاد العرض</a></div>
         </div>
       </div>
     </section>
@@ -919,7 +947,7 @@
               <div class="review-tag">طلبت حبتين</div>
             </div>
           </div>
-          <div class="section-cta"><a href="#order">أريد الطلب الآن</a></div>
+          <div class="section-cta"><a href="#order" class="track-initiate-checkout">أريد الطلب الآن</a></div>
         </div>
       </div>
     </section>
@@ -946,7 +974,7 @@
               <p>بالتأكيد، لأنها تجمع بين الشكل الجميل والمتعة والحركة، وهذا يجعلها هدية محببة للأطفال.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="#order">انتقل إلى نموذج الطلب</a></div>
+          <div class="section-cta"><a href="#order" class="track-initiate-checkout">انتقل إلى نموذج الطلب</a></div>
         </div>
       </div>
     </section>
@@ -1011,10 +1039,10 @@
 
   <div class="activity-popup" id="activityPopup"></div>
 
-  <a class="floating-wa" href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن نطاطة الأطفال المضيئة" target="_blank" title="واتساب">💬</a>
+  <a class="floating-wa track-whatsapp" href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن نطاطة الأطفال المضيئة" target="_blank" title="واتساب">💬</a>
 
   <div class="sticky-cta">
-    <a href="#order">🔥 اطلب الآن قبل نفاد الكمية</a>
+    <a href="#order" class="track-initiate-checkout">🔥 اطلب الآن قبل نفاد الكمية</a>
   </div>
 
   <footer class="site-footer">جميع الحقوق محفوظة 2026</footer>
@@ -1023,6 +1051,12 @@
     const merchantWhatsApp = "970592533948";
     const basePrice = 65;
     const twoPiecesDiscountRate = 0.09;
+
+    function trackEvent(eventName, params = {}) {
+      if (typeof fbq === 'function') {
+        fbq('track', eventName, params);
+      }
+    }
 
     function formatPrice(value) {
       const fixed = Number(value).toFixed(2);
@@ -1076,14 +1110,76 @@
       window.open(whatsappUrl, '_blank');
     }
 
+    document.querySelectorAll('.track-initiate-checkout').forEach(function(element) {
+      element.addEventListener('click', function() {
+        trackEvent('InitiateCheckout', {
+          content_name: 'Panda Hopper Order Start',
+          content_category: 'Kids Toy',
+          content_type: 'product',
+          currency: 'ILS',
+          value: 65
+        });
+      });
+    });
+
+    document.querySelectorAll('.track-whatsapp').forEach(function(element) {
+      element.addEventListener('click', function() {
+        trackEvent('Lead', {
+          content_name: 'WhatsApp Inquiry Click',
+          content_category: 'Kids Toy',
+          method: 'whatsapp'
+        });
+
+        trackEvent('Contact', {
+          content_name: 'WhatsApp Inquiry Click',
+          method: 'whatsapp'
+        });
+      });
+    });
+
     document.getElementById('regionSelect').addEventListener('change', updatePrices);
-    document.getElementById('quantitySelect').addEventListener('change', updatePrices);
+    document.getElementById('quantitySelect').addEventListener('change', function() {
+      updatePrices();
+      const order = calculateOrder();
+
+      trackEvent('AddToCart', {
+        content_name: 'نطاطة الأطفال المضيئة - نطاطة الباندا',
+        content_category: 'Kids Toy',
+        content_type: 'product',
+        num_items: order.quantity,
+        currency: 'ILS',
+        value: order.subtotal
+      });
+    });
+
     updatePrices();
 
     document.getElementById('orderForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const form = e.target;
       const calc = calculateOrder();
+
+      trackEvent('Lead', {
+        content_name: 'Order Form Submitted',
+        content_category: 'Kids Toy',
+        num_items: calc.quantity,
+        currency: 'ILS',
+        value: calc.total
+      });
+
+      trackEvent('Contact', {
+        content_name: 'Order Sent to WhatsApp',
+        method: 'whatsapp'
+      });
+
+      trackEvent('Purchase', {
+        content_name: 'نطاطة الأطفال المضيئة - نطاطة الباندا',
+        content_category: 'Kids Toy',
+        content_type: 'product',
+        num_items: calc.quantity,
+        currency: 'ILS',
+        value: calc.total
+      });
 
       openWhatsAppOrder({
         name: form.name.value.trim(),
@@ -1106,6 +1202,21 @@
       const quickPhone = document.getElementById('quickPhone').value.trim();
       const orderSection = document.getElementById('order');
       const orderForm = document.getElementById('orderForm');
+
+      trackEvent('AddToCart', {
+        content_name: 'Quick Order Started',
+        content_category: 'Kids Toy',
+        content_type: 'product',
+        currency: 'ILS',
+        value: 65
+      });
+
+      trackEvent('InitiateCheckout', {
+        content_name: 'Quick Order Form',
+        currency: 'ILS',
+        value: 65
+      });
+
       if (orderForm && orderSection) {
         orderForm.name.value = quickName;
         orderForm.phone.value = quickPhone;
