@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>لعبة العصفور الناطق | تسلية، تعليم وموسيقى</title>
+  <meta name="description" content="لعبة العصفور الناطق بسعر 49 شيكل فقط، وقطعتين بسعر 80 شيكل. لعبة تفاعلية للأطفال تسجّل الصوت وتعيده بشكل مضحك مع موسيقى." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '536244607937266');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: 'لعبة العصفور الناطق',
+      content_category: 'Kids Toy',
+      content_type: 'product',
+      currency: 'ILS',
+      value: 49
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=536244607937266&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <style>
+    :root{
+      --bg:#f6f3eb;
+      --white:#ffffff;
+      --text:#101010;
+      --muted:#5f625f;
+      --line:#e8e2d5;
+      --soft:#f7f1e3;
+      --primary:#111111;
+      --secondary:#5bbf8a;
+      --secondary-dark:#399d6d;
+      --accent:#ff9b00;
+      --accent-soft:#fff4dd;
+      --success:#0f8f4e;
+      --success-soft:#ecfff4;
+      --shadow:0 18px 40px rgba(0,0,0,.08);
+      --shadow-lg:0 28px 70px rgba(0,0,0,.14);
+      --container:1160px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body,button,input,textarea,select{font-family:'Cairo',Arial,sans-serif}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(91,191,138,.14), transparent 24%),
+        radial-gradient(circle at top left, rgba(255,155,0,.10), transparent 18%),
+        linear-gradient(180deg,#fbf8f1 0%, #f5f1e7 100%);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    img{display:block;max-width:100%}
+    .container{max-width:var(--container);margin:auto;padding:0 16px}
+
+    .top-ticker{
+      background:linear-gradient(90deg,#111,#1d1d1d,#3d3d3d);
+      color:#fff;
+      overflow:hidden;
+      padding:10px 0;
+      font-size:14px;
+      font-weight:900;
+      direction:ltr;
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+    .top-ticker-track{
+      display:flex;
+      width:max-content;
+      gap:44px;
+      white-space:nowrap;
+      animation:ticker 26s linear infinite;
+    }
+    @keyframes ticker{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
+    .shipping-bar{
+      background:#f1ead9;
+      color:#222;
+      padding:12px 16px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      font-size:14px;
+      font-weight:800;
+      border-bottom:1px solid #e7ddc8;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,.05);
+      box-shadow:0 8px 22px rgba(0,0,0,.04);
+    }
+    .header-inner{
+      max-width:var(--container);
+      margin:auto;
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand strong{font-size:23px;font-weight:900;color:#111}
+    .brand span{font-size:13px;color:#666;font-weight:700}
+    .header-actions{display:flex;align-items:center;gap:10px}
+    .mini-pill{
+      background:var(--accent-soft);
+      color:#8a4d00;
+      border:1px solid #ffd9b2;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+    }
+    .header-btn{
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      padding:12px 18px;
+      border-radius:14px;
+      font-size:14px;
+      font-weight:900;
+      box-shadow:0 14px 28px rgba(57,157,109,.28);
+      transition:.25s ease;
+      border:none;
+      cursor:pointer;
+    }
+    .header-btn:hover{transform:translateY(-2px)}
+
+    .hero-wrap{padding:18px 0 10px}
+    .hero-card{
+      background:rgba(255,255,255,.88);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:34px;
+      padding:24px;
+      box-shadow:var(--shadow-lg);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(91,191,138,.10), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255,155,0,.08), transparent 20%);
+      pointer-events:none;
+    }
+    .hero-grid,.badge-row,.rating-row,.trust-strip{position:relative;z-index:1}
+    .badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .badge{
+      background:#fff;
+      border:1px solid #ebe4d5;
+      color:#222;
+      padding:9px 13px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
+    }
+    .rating-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .stars{color:#ffb400;font-size:18px;letter-spacing:1px}
+    .rating-text{color:#575757;font-size:14px;font-weight:700}
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.04fr .96fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-copy{display:flex;flex-direction:column;justify-content:center}
+    .flash-box{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      background:#fff4e6;
+      color:#8c4a00;
+      border:1px solid #ffd39c;
+      padding:11px 15px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:900;
+      box-shadow:0 10px 22px rgba(255,155,0,.12);
+      margin-bottom:14px;
+      width:max-content;
+      max-width:100%;
+    }
+    .hero-title{
+      margin:0 0 12px;
+      font-size:50px;
+      line-height:1.12;
+      color:#111;
+      letter-spacing:-.5px;
+    }
+    .hero-sub{
+      margin:0 0 16px;
+      color:#555;
+      font-size:18px;
+      line-height:1.95;
+      font-weight:700;
+    }
+    .offer-banner{
+      background:linear-gradient(135deg,#111,#2c2c2c);
+      color:#fff;
+      border-radius:22px;
+      padding:16px 18px;
+      margin:0 0 16px;
+      box-shadow:0 18px 34px rgba(0,0,0,.16);
+    }
+    .offer-banner strong{display:block;font-size:19px;margin-bottom:6px}
+    .offer-banner span{display:block;font-size:14px;color:rgba(255,255,255,.84);line-height:1.9}
+
+    .usp-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:10px;
+      margin-bottom:16px;
+    }
+    .usp-item{
+      background:#fff;
+      border:1px solid #ebe4d5;
+      border-radius:18px;
+      padding:13px 14px;
+      font-size:14px;
+      font-weight:800;
+      color:#333;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+
+    .price-box{
+      background:linear-gradient(135deg,#fff,#effcf5);
+      border:1px solid #d4eadc;
+      border-radius:26px;
+      padding:18px;
+      box-shadow:0 20px 40px rgba(57,157,109,.12);
+      margin-bottom:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .price-kicker{font-size:16px;font-weight:900;color:#399d6d;margin-bottom:10px}
+    .price-row{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+    .new-price{font-size:52px;line-height:1;color:#111;font-weight:900}
+    .save-chip{
+      background:var(--success-soft);
+      color:var(--success);
+      border:1px solid #c8ecd6;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:900;
+    }
+    .price-note{font-size:14px;color:#666;line-height:1.9;font-weight:700;margin-bottom:12px}
+    .discount-pill{
+      background:#fff;
+      border:1px dashed #5bbf8a;
+      border-radius:18px;
+      padding:13px 14px;
+      color:#2f7554;
+      font-size:15px;
+      font-weight:900;
+    }
+
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:58px;
+      padding:14px 22px;
+      border-radius:18px;
+      font-size:17px;
+      font-weight:900;
+      border:none;
+      cursor:pointer;
+      transition:.25s ease;
+      text-align:center;
+    }
+    .btn-primary{
+      flex:1.25;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      box-shadow:0 18px 34px rgba(57,157,109,.26);
+    }
+    .btn-primary:hover{transform:translateY(-3px) scale(1.01)}
+    .btn-secondary{
+      flex:1;
+      background:#111;
+      color:#fff;
+      box-shadow:0 14px 28px rgba(0,0,0,.16);
+    }
+    .cta-note{margin-top:12px;font-size:13px;color:#777;font-weight:800}
+
+    .hero-media{
+      min-height:560px;
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow:0 24px 50px rgba(0,0,0,.18);
+      border:1px solid rgba(0,0,0,.05);
+    }
+    .hero-main-image{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .media-overlay{
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      z-index:3;
+      background:rgba(0,0,0,.68);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      padding:13px 15px;
+      font-size:14px;
+      font-weight:900;
+      backdrop-filter:blur(8px);
+      max-width:320px;
+      line-height:1.8;
+    }
+
+    .activity-bar{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      flex-wrap:wrap;
+      padding:8px 16px 0;
+      background:transparent;
+      border-bottom:none;
+      position:relative;
+      top:auto;
+      z-index:1;
+    }
+    .activity-pill{
+      background:#111;
+      color:#fff;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      box-shadow:0 8px 18px rgba(0,0,0,.10);
+      white-space:nowrap;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .gallery-item{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      aspect-ratio:1/1;
+    }
+
+    .trust-strip{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .trust-item{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:18px;
+      padding:14px;
+      text-align:center;
+      font-size:14px;
+      font-weight:900;
+      color:#3a3a3a;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+
+    .section{padding:18px 0}
+    .section-card{
+      background:rgba(255,255,255,.9);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:30px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .section-title{margin:0 0 10px;font-size:32px;color:#111}
+    .section-subtitle{margin:0 0 20px;color:#666;font-size:16px;line-height:1.95}
+
+    .features-grid,.reviews-grid,.faq-grid{
+      display:grid;
+      gap:16px;
+    }
+    .features-grid{grid-template-columns:repeat(3,1fr)}
+    .reviews-grid{grid-template-columns:repeat(3,1fr)}
+    .faq-grid{grid-template-columns:repeat(2,1fr)}
+
+    .feature,.review,.faq-item{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+    .feature h3{margin:0 0 8px;font-size:20px;color:#111}
+    .feature p,.review p,.faq-item p{margin:0;color:#555;line-height:1.95;font-size:15px;font-weight:700}
+    .review .stars{font-size:20px;margin-bottom:10px}
+    .review-name{margin-top:12px;font-weight:900;color:#111}
+    .faq-item strong{display:block;margin-bottom:8px;font-size:17px;color:#111}
+
+    .section-cta{margin-top:18px;text-align:center}
+    .section-cta a{
+      display:inline-block;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:900;
+      box-shadow:0 12px 24px rgba(57,157,109,.24);
+    }
+
+    .quick-order{padding:14px 0 6px}
+    .quick-order-box{
+      background:linear-gradient(135deg,#111,#2c2c2c);
+      color:#fff;
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 18px 34px rgba(0,0,0,.18);
+      text-align:center;
+    }
+    .quick-title{font-size:17px;font-weight:900;margin-bottom:10px}
+    .quick-form{display:flex;gap:10px;flex-wrap:wrap}
+    .quick-form input{
+      flex:1;
+      min-width:140px;
+      padding:13px;
+      border:none;
+      border-radius:12px;
+      text-align:right;
+      direction:rtl;
+    }
+    .quick-form button{
+      flex:1;
+      min-width:220px;
+      border:none;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+      padding:0 18px;
+    }
+    .quick-note{margin-top:8px;font-size:13px;color:rgba(255,255,255,.82);font-weight:700;line-height:1.8}
+
+    .sales-popup{
+      position:fixed;
+      right:18px;
+      bottom:90px;
+      z-index:1300;
+      opacity:0;
+      transform:translateY(20px);
+      pointer-events:none;
+      transition:.35s ease;
+    }
+    .sales-popup.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .sales-popup-inner{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:300px;
+      max-width:380px;
+      background:#fff;
+      border:1px solid #e9e2d7;
+      border-radius:20px;
+      padding:14px;
+      box-shadow:0 18px 40px rgba(0,0,0,.14);
+    }
+    .sales-popup-icon{
+      width:48px;
+      height:48px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      flex-shrink:0;
+    }
+    .sales-popup-content strong{
+      display:block;
+      font-size:15px;
+      color:#111;
+      margin-bottom:2px;
+    }
+    .sales-popup-content p{
+      margin:0 0 4px;
+      font-size:14px;
+      color:#222;
+      font-weight:800;
+      line-height:1.8;
+    }
+    .sales-popup-content small{
+      color:#888;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .floating-wa{
+      position:fixed;
+      left:18px;
+      bottom:88px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#25D366;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      box-shadow:0 12px 26px rgba(0,0,0,.2);
+      z-index:999;
+    }
+
+    .sticky-cta{position:fixed;right:12px;left:12px;bottom:12px;z-index:1200;display:none}
+    .sticky-cta a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:60px;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      border-radius:18px;
+      font-size:18px;
+      font-weight:900;
+      box-shadow:0 16px 34px rgba(57,157,109,.28);
+    }
+
+    .site-footer{text-align:center;padding:22px 16px 110px;color:#777;font-size:14px;font-weight:700}
+
+    @media (max-width:980px){
+      .hero-grid,.features-grid,.reviews-grid,.faq-grid,.gallery{grid-template-columns:1fr}
+      .trust-strip{grid-template-columns:1fr 1fr}
+      .hero-title{font-size:38px}
+      .usp-grid{grid-template-columns:1fr}
+      .hero-media{min-height:360px;order:-1}
+      .sticky-cta{display:block}
+      .header-actions .mini-pill{display:none}
+    }
+    @media (max-width:640px){
+      .shipping-bar{gap:10px;font-size:13px}
+      .header-inner{padding:12px 14px}
+      .brand strong{font-size:19px}
+      .hero-card,.section-card{border-radius:24px;padding:18px}
+      .hero-title{font-size:30px}
+      .new-price{font-size:42px}
+      .quick-form{flex-direction:column}
+      .trust-strip{grid-template-columns:1fr}
+      .hero-media{min-height:300px}
+      .activity-bar{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:8px;
+        padding:8px 12px 0;
+      }
+      .activity-pill{
+        font-size:12px;
+        padding:8px 12px;
+        text-align:center;
+        white-space:normal;
+      }
+      .sales-popup{
+        right:12px;
+        left:12px;
+        bottom:84px;
+      }
+      .sales-popup-inner{
+        min-width:auto;
+        width:100%;
+        max-width:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-ticker">
+    <div class="top-ticker-track">
+      <span>🔥 لعبة العصفور الناطق بسعر 49 شيكل فقط — وقطعتين بسعر 80 شيكل — الدفع عند الاستلام — الكمية محدودة</span>
+      <span>🔥 لعبة العصفور الناطق بسعر 49 شيكل فقط — وقطعتين بسعر 80 شيكل — الدفع عند الاستلام — الكمية محدودة</span>
+    </div>
+  </div>
+
+  <div class="shipping-bar">
+    <div>🚚 شحن سريع</div>
+    <div>💵 الدفع عند الاستلام</div>
+    <div>🐤 لعبة ناطقة وموسيقية</div>
+    <div>🎶 تسلية وتعليم معًا</div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <strong>لعبة العصفور الناطق</strong>
+        <span>منتج جديد • تسلية، تعليم وموسيقى</span>
+      </div>
+      <div class="header-actions">
+        <div class="mini-pill">قطعتين بسعر 80 شيكل</div>
+        <a href="order.html" class="header-btn track-initiate-checkout">اطلب الآن</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="quick-order">
+    <div class="container">
+      <div class="quick-order-box">
+        <div class="quick-title">🔥 ابدأ الطلب بسرعة ثم أكمل بيانات الشحن</div>
+        <form id="quickOrderForm" class="quick-form">
+          <input type="text" id="quickName" placeholder="الاسم" required>
+          <input type="tel" id="quickPhone" placeholder="رقم الهاتف" required>
+          <button type="submit">تابع الطلب الآن — 49 شيكل فقط</button>
+        </form>
+        <div class="quick-note">السعر للحبة الواحدة 49 شيكل • وكل قطعتين بسعر 80 شيكل • التوصيل يُحسب حسب المنطقة</div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="container hero-wrap">
+      <section>
+        <div class="hero-card">
+          <div class="badge-row">
+            <div class="badge">🐤 يعيد الكلام بصوت مضحك</div>
+            <div class="badge">🎶 موسيقى وأغاني</div>
+            <div class="badge">⌚ يُلبس كالساعة</div>
+            <div class="badge">⚡ عرض محدود</div>
+          </div>
+
+          <div class="rating-row">
+            <div class="stars">★★★★★</div>
+            <div class="rating-text">لعبة تفاعلية ممتعة تساعد الطفل على الضحك والتعلّم والتواصل</div>
+          </div>
+
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <div class="flash-box">🔥 الكمية محدودة جدًا — احجز لطفلك الآن</div>
+              <h1 class="hero-title">لعبة العصفور الناطق — متعة وضحك بلا حدود</h1>
+              <p class="hero-sub">
+                لعبة ظريفة بتنلبس زي الساعة، بتحكي وبتعيد كلام الطفل بصوت مضحك ومرِح.
+                فيها موسيقى وتفاعل وحركة، وبتساعد على تطوير مهارات النطق والاستماع والتواصل عند الأطفال.
+              </p>
+
+              <div class="offer-banner">
+                <strong>بسعر 49 شيكل فقط 🔥</strong>
+                <span>وكل قطعتين بسعر 80 شيكل فقط. لعبة تجمع بين التسلية، التعليم، الموسيقى والتفاعل في منتج واحد سهل الحمل ومناسب كهدية رائعة للأطفال.</span>
+              </div>
+
+              <div class="usp-grid">
+                <div class="usp-item">✅ تسجيل وترديد الكلام والأصوات فورًا</div>
+                <div class="usp-item">✅ أجنحة تتحرك وفم يتفاعل أثناء الكلام</div>
+                <div class="usp-item">✅ يمكن ارتداؤه كالساعة أو اللعب به منفصلًا</div>
+                <div class="usp-item">✅ مناسب كهدية ممتعة للأطفال</div>
+              </div>
+
+              <div class="price-box">
+                <div class="price-kicker">عرض اليوم</div>
+                <div class="price-row">
+                  <div class="new-price">49 شيكل</div>
+                  <div class="save-chip">قطعتين بـ 80 شيكل</div>
+                </div>
+                <div class="price-note">السعر للحبة الواحدة • الدفع عند الاستلام متاح • مناسبة للأطفال من عمر 3 سنوات وفوق</div>
+                <div class="discount-pill">🎉 عرض خاص: عند شراء قطعتين تحصل عليهم بسعر 80 شيكل فقط</div>
+              </div>
+
+              <div class="cta-row">
+                <a href="order.html" class="btn btn-primary track-initiate-checkout">🔥 احجز طلبك الآن</a>
+                <a href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن لعبة العصفور الناطق" target="_blank" class="btn btn-secondary track-whatsapp">اطلب عبر واتساب</a>
+              </div>
+              <div class="cta-note">✔ كمية محدودة &nbsp; ✔ شحن سريع &nbsp; ✔ هدية رائعة للأطفال</div>
+            </div>
+
+            <div class="hero-media">
+              <img src="bird-1.jpg" alt="لعبة العصفور الناطق" class="hero-main-image">
+              <div class="media-overlay">⏳ الكمية محدودة — خلي الضحك، اللعب، والموسيقى دايمًا معك</div>
+            </div>
+          </div>
+
+          <div class="activity-bar">
+            <div class="activity-pill">🎁 عرض القطعتين: 80 شيكل</div>
+            <div class="activity-pill">🚚 الدفع عند الاستلام متاح</div>
+            <div class="activity-pill">⏳ ينتهي خلال <span id="countdown">02:15:33</span></div>
+          </div>
+
+          <div class="gallery">
+            <div class="gallery-item"><img src="bird-2.jpg" alt="العصفور المتحدث على اليد"></div>
+            <div class="gallery-item"><img src="bird-3.jpg" alt="التفاعل مع لعبة العصفور الناطق"></div>
+            <div class="gallery-item"><img src="bird-4.jpg" alt="لعبة العصفور مع الصفارة"></div>
+            <div class="gallery-item"><img src="bird-5.jpg" alt="مميزات لعبة العصفور الناطق"></div>
+            <div class="gallery-item"><img src="bird-6.jpg" alt="استخدامات لعبة العصفور الناطق"></div>
+            <div class="gallery-item"><img src="bird-1.jpg" alt="صورة إضافية للمنتج"></div>
+          </div>
+
+          <div class="trust-strip">
+            <div class="trust-item">🛡️ آمن ومتين للأطفال</div>
+            <div class="trust-item">🎤 يعيد الكلام بصوت مضحك</div>
+            <div class="trust-item">⌚ يمكن لبسه كالساعة</div>
+            <div class="trust-item">🎁 مثالي كهدية للأطفال</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2 class="section-title">لماذا يحب الأطفال لعبة العصفور الناطق؟</h2>
+          <p class="section-subtitle">
+            لأنها تجمع بين الضحك، الموسيقى، التفاعل، والتعلّم في لعبة واحدة. الطفل يتكلم، والعصفور يعيد كلامه بطريقة مضحكة، وهذا يجعله يندمج أكثر ويستمتع لفترة أطول.
+          </p>
+          <div class="features-grid">
+            <div class="feature">
+              <h3>تفاعل وتعليم</h3>
+              <p>يساعد الطفل على تحسين مهارات الاستماع والنطق والتواصل من خلال التكرار واللعب التفاعلي.</p>
+            </div>
+            <div class="feature">
+              <h3>أوضاع لعب ممتعة</h3>
+              <p>أغاني، تقليد الكلام، استجابة للصوت، وحركة في الأجنحة والفم أثناء التفاعل.</p>
+            </div>
+            <div class="feature">
+              <h3>سهل الحمل والاستخدام</h3>
+              <p>يمكن ارتداؤه كالساعة أو اللعب به بشكل منفصل، وحجمه مناسب للأطفال.</p>
+            </div>
+          </div>
+          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">اطلب الآن قبل نفاد الكمية</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2 class="section-title">⭐ مميزات المنتج</h2>
+          <div class="features-grid">
+            <div class="feature">
+              <h3>يعيد الكلام فورًا</h3>
+              <p>يسجل صوت الطفل ويعيده بصوت مضحك ومسلي، مما يجعل الطفل يضحك ويتفاعل أكثر.</p>
+            </div>
+            <div class="feature">
+              <h3>تصميم ذكي وممتع</h3>
+              <p>الأجنحة تتحرك أثناء الكلام، والفم يتحرك أيضًا، ويمكن لبسه كالساعة على يد الطفل.</p>
+            </div>
+            <div class="feature">
+              <h3>هدية رائعة</h3>
+              <p>مناسب جدًا كهدية للأطفال لأنه يجمع بين اللعب والتعليم والموسيقى بشكل جذاب.</p>
+            </div>
+          </div>
+          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">أريد الطلب الآن</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2 class="section-title">⭐ آراء العملاء</h2>
+          <div class="reviews-grid">
+            <div class="review">
+              <div class="stars">★★★★★</div>
+              <p>ابني كثير انبسط فيها، صار يحكي للعصفور ويضحك لما يعيد كلامه. لعبة مسلية جدًا.</p>
+              <div class="review-name">أم يامن</div>
+            </div>
+            <div class="review">
+              <div class="stars">★★★★★</div>
+              <p>حلوة كهدية وسعرها ممتاز، والأحلى إنها تعليمية ومش بس للتسلية.</p>
+              <div class="review-name">ريم</div>
+            </div>
+            <div class="review">
+              <div class="stars">★★★★★</div>
+              <p>أعجبني كثير أنها تُلبس كالساعة وفيها شكل جميل ومناسبة للأطفال.</p>
+              <div class="review-name">محمد</div>
+            </div>
+          </div>
+          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">احجز لطفلك الآن</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-card">
+          <h2 class="section-title">أسئلة شائعة</h2>
+          <div class="faq-grid">
+            <div class="faq-item">
+              <strong>هل اللعبة مناسبة للأطفال الصغار؟</strong>
+              <p>نعم، مناسبة للأطفال من عمر 3 سنوات وفوق، ومصنوعة من مواد آمنة ومتينة.</p>
+            </div>
+            <div class="faq-item">
+              <strong>هل يمكن ارتداؤها في اليد؟</strong>
+              <p>نعم، يمكن تركيبها ولبسها كالساعة، كما يمكن فصلها واللعب بها بشكل مستقل.</p>
+            </div>
+            <div class="faq-item">
+              <strong>هل يوجد عرض على أكثر من قطعة؟</strong>
+              <p>نعم، الحبة الواحدة بسعر 49 شيكل، وقطعتين بسعر 80 شيكل فقط.</p>
+            </div>
+            <div class="faq-item">
+              <strong>هل تتفاعل أثناء الكلام؟</strong>
+              <p>نعم، تعيد الكلام بصوت مضحك مع حركة في الفم والأجنحة بشكل ممتع للأطفال.</p>
+            </div>
+          </div>
+          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">انتقل إلى صفحة الطلب</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="salesPopup" class="sales-popup">
+    <div class="sales-popup-inner">
+      <div class="sales-popup-icon">🎁</div>
+      <div class="sales-popup-content">
+        <strong id="popupTitle">عرض خاص</strong>
+        <p id="popupText">احصل على لعبة العصفور الناطق الآن بسعر 49 شيكل فقط</p>
+        <small id="popupTime">لفترة محدودة</small>
+      </div>
+    </div>
+  </div>
+
+  <a class="floating-wa track-whatsapp" href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن لعبة العصفور الناطق" target="_blank" title="واتساب">💬</a>
+
+  <div class="sticky-cta">
+    <a href="order.html" class="track-initiate-checkout">🔥 اطلب الآن قبل نفاد الكمية</a>
+  </div>
+
+  <footer class="site-footer">جميع الحقوق محفوظة 2026</footer>
+
+  <script>
+    function trackEvent(eventName, params = {}) {
+      if (typeof fbq === 'function') fbq('track', eventName, params);
+    }
+
+    document.querySelectorAll('.track-initiate-checkout').forEach(function(element) {
+      element.addEventListener('click', function() {
+        trackEvent('InitiateCheckout', {
+          content_name: 'Talking Bird Order Start',
+          content_category: 'Kids Toy',
+          content_type: 'product',
+          currency: 'ILS',
+          value: 49
+        });
+      });
+    });
+
+    document.querySelectorAll('.track-whatsapp').forEach(function(element) {
+      element.addEventListener('click', function() {
+        trackEvent('Lead', {
+          content_name: 'WhatsApp Inquiry Click',
+          content_category: 'Kids Toy',
+          method: 'whatsapp'
+        });
+        trackEvent('Contact', {
+          content_name: 'WhatsApp Inquiry Click',
+          method: 'whatsapp'
+        });
+      });
+    });
+
+    document.getElementById('quickOrderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const quickName = document.getElementById('quickName').value.trim();
+      const quickPhone = document.getElementById('quickPhone').value.trim();
+
+      localStorage.setItem('talkingBirdQuickLead', JSON.stringify({
+        name: quickName,
+        phone: quickPhone
+      }));
+
+      trackEvent('AddToCart', {
+        content_name: 'Quick Order Started',
+        content_category: 'Kids Toy',
+        content_type: 'product',
+        currency: 'ILS',
+        value: 49
+      });
+
+      trackEvent('InitiateCheckout', {
+        content_name: 'Quick Order Form',
+        currency: 'ILS',
+        value: 49
+      });
+
+      window.location.href = 'order.html';
+    });
+
+    function startCountdown(durationInSeconds) {
+      const countdown = document.getElementById('countdown');
+      let timer = durationInSeconds;
+
+      setInterval(function() {
+        const hours = String(Math.floor(timer / 3600)).padStart(2, '0');
+        const minutes = String(Math.floor((timer % 3600) / 60)).padStart(2, '0');
+        const seconds = String(timer % 60).padStart(2, '0');
+        countdown.textContent = hours + ':' + minutes + ':' + seconds;
+
+        if (timer > 0) {
+          timer--;
+        }
+      }, 1000);
+    }
+
+    startCountdown(2 * 3600 + 15 * 60 + 33);
+
+    const popupMessages = [
+      {
+        title: '🔥 عرض سريع',
+        text: 'احصل على لعبة العصفور الناطق الآن بسعر 49 شيكل فقط',
+        time: 'لفترة محدودة'
+      },
+      {
+        title: '🎁 العرض الأفضل',
+        text: 'وفّر أكثر وخذ قطعتين بسعر 80 شيكل فقط',
+        time: 'الأكثر توفيرًا'
+      },
+      {
+        title: '⌚ مناسب كهدية',
+        text: 'لعبة ممتعة وتعليمية للأطفال من عمر 3 سنوات وفوق',
+        time: 'شحن سريع'
+      },
+      {
+        title: '🐤 الأكثر طلبًا',
+        text: 'اختيار قطعتين مناسب للإخوة أو كهدية مزدوجة',
+        time: 'عرض موفّر'
+      },
+      {
+        title: '💥 لا تفوّت العرض',
+        text: 'الحبة الواحدة 49 شيكل فقط — اطلب الآن قبل انتهاء العرض',
+        time: 'كمية محدودة'
+      }
+    ];
+
+    const salesPopup = document.getElementById('salesPopup');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupText = document.getElementById('popupText');
+    const popupTime = document.getElementById('popupTime');
+
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function showPromoPopup() {
+      const message = randomItem(popupMessages);
+      popupTitle.textContent = message.title;
+      popupText.textContent = message.text;
+      popupTime.textContent = message.time;
+
+      salesPopup.classList.add('show');
+
+      setTimeout(function() {
+        salesPopup.classList.remove('show');
+      }, 4500);
+    }
+
+    function startPopupLoop() {
+      setTimeout(function() {
+        showPromoPopup();
+
+        setInterval(function() {
+          showPromoPopup();
+        }, Math.floor(Math.random() * 5000) + 10000);
+      }, 3000);
+    }
+
+    startPopupLoop();
+  </script>
+</body>
+</html>
