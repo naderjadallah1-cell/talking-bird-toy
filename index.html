@@ -311,6 +311,7 @@
       color:#fff;
       box-shadow:0 14px 28px rgba(0,0,0,.16);
     }
+    .btn-secondary:hover{transform:translateY(-2px)}
     .cta-note{margin-top:12px;font-size:13px;color:#777;font-weight:800}
 
     .hero-media{
@@ -539,23 +540,6 @@
       font-weight:700;
     }
 
-    .floating-wa{
-      position:fixed;
-      left:18px;
-      bottom:88px;
-      width:58px;
-      height:58px;
-      border-radius:50%;
-      background:#25D366;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:28px;
-      box-shadow:0 12px 26px rgba(0,0,0,.2);
-      z-index:999;
-    }
-
     .sticky-cta{position:fixed;right:12px;left:12px;bottom:12px;z-index:1200;display:none}
     .sticky-cta a{
       display:flex;
@@ -707,7 +691,7 @@
 
               <div class="cta-row">
                 <a href="order.html" class="btn btn-primary track-initiate-checkout">🔥 احجز طلبك الآن</a>
-                <a href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن لعبة العصفور الناطق" target="_blank" class="btn btn-secondary track-whatsapp">اطلب عبر واتساب</a>
+                <a href="order.html" class="btn btn-secondary track-initiate-checkout">عرض الطلب الكامل</a>
               </div>
               <div class="cta-note">✔ كمية محدودة &nbsp; ✔ شحن سريع &nbsp; ✔ هدية رائعة للأطفال</div>
             </div>
@@ -857,8 +841,6 @@
     </div>
   </div>
 
-  <a class="floating-wa track-whatsapp" href="https://wa.me/970592533948?text=مرحبًا، أريد الاستفسار عن لعبة العصفور الناطق" target="_blank" title="واتساب">💬</a>
-
   <div class="sticky-cta">
     <a href="order.html" class="track-initiate-checkout">🔥 اطلب الآن قبل نفاد الكمية</a>
   </div>
@@ -878,20 +860,6 @@
           content_type: 'product',
           currency: 'ILS',
           value: 49
-        });
-      });
-    });
-
-    document.querySelectorAll('.track-whatsapp').forEach(function(element) {
-      element.addEventListener('click', function() {
-        trackEvent('Lead', {
-          content_name: 'WhatsApp Inquiry Click',
-          content_category: 'Kids Toy',
-          method: 'whatsapp'
-        });
-        trackEvent('Contact', {
-          content_name: 'WhatsApp Inquiry Click',
-          method: 'whatsapp'
         });
       });
     });
