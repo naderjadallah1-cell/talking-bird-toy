@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>شكرًا لطلبك | لعبة العصفور الناطق</title>
-  <meta name="description" content="تم استلام طلب لعبة العصفور الناطق بنجاح. سنقوم بالتواصل معك قريبًا لتأكيد الشحن." />
-
+  <title>تم استلام طلبك | لعبة العصفور الناطق</title>
+  <meta name="description" content="تم استلام طلبك بنجاح. سنراجع البيانات ونتواصل معك قريبًا لتأكيد الطلب." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,6 +22,9 @@
     fbq('init', '536244607937266');
     fbq('track', 'PageView');
   </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=536244607937266&ev=PageView&noscript=1"/>
+  </noscript>
 
   <style>
     :root{
@@ -32,194 +33,404 @@
       --secondary:#5bbf8a;
       --secondary-dark:#399d6d;
       --accent:#ff9b00;
+      --success:#0f8f4e;
       --bg:#f6f3eb;
       --white:#ffffff;
+      --line:#e8e2d5;
+      --shadow:0 18px 40px rgba(0,0,0,.08);
       --shadow-lg:0 28px 70px rgba(0,0,0,.14);
-      --container:900px;
+      --container:980px;
     }
 
     *{box-sizing:border-box}
-    body{margin:0;font-family:'Cairo',Arial,sans-serif;background:#f5f1e7;color:var(--text)}
+    body,button,input,textarea,select{font-family:'Cairo',Arial,sans-serif}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(91,191,138,.14), transparent 24%),
+        radial-gradient(circle at top left, rgba(255,155,0,.10), transparent 18%),
+        linear-gradient(180deg,#fbf8f1 0%, #f5f1e7 100%);
+      min-height:100vh;
+    }
+
     .container{max-width:var(--container);margin:auto;padding:0 16px}
 
-    .top{
+    .top-bar{
       background:#111;
       color:#fff;
       text-align:center;
-      padding:12px;
+      padding:14px 10px;
+      font-size:14px;
+      font-weight:900;
+    }
+
+    .wrap{
+      padding:24px 0 40px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:32px;
+      padding:28px;
+      box-shadow:var(--shadow-lg);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(91,191,138,.10), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(255,155,0,.08), transparent 20%);
+      pointer-events:none;
+    }
+
+    .content{
+      position:relative;
+      z-index:1;
+    }
+
+    .success-badge{
+      width:92px;
+      height:92px;
+      margin:0 auto 18px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:42px;
+      box-shadow:0 18px 34px rgba(57,157,109,.28);
+    }
+
+    .title{
+      margin:0 0 10px;
+      text-align:center;
+      font-size:40px;
+      font-weight:900;
+      color:#111;
+    }
+
+    .sub{
+      margin:0 auto 22px;
+      max-width:760px;
+      text-align:center;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.95;
+      font-weight:700;
+    }
+
+    .status-strip{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+
+    .status-pill{
+      background:#fff;
+      border:1px solid #e9e2d7;
+      border-radius:999px;
+      padding:10px 14px;
+      font-size:13px;
+      font-weight:900;
+      color:#333;
+      box-shadow:0 8px 18px rgba(0,0,0,.05);
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .box{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:24px;
+      padding:20px;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+
+    .box h2{
+      margin:0 0 12px;
+      font-size:24px;
+      color:#111;
+    }
+
+    .steps{
+      display:grid;
+      gap:12px;
+    }
+
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px;
+      border-radius:18px;
+      background:#fcfaf5;
+      border:1px solid #efe6d8;
+    }
+
+    .step-num{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      flex-shrink:0;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       font-weight:900;
       font-size:14px;
     }
 
-    .card{
-      margin:28px auto;
-      background:#fff;
-      border-radius:30px;
-      padding:26px;
-      box-shadow:var(--shadow-lg);
-      text-align:center;
-    }
-
-    .success{
-      font-size:50px;
-      margin-bottom:10px;
-      color:#fff;
-      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
-      width:90px;height:90px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      margin:auto;margin-bottom:16px;
-    }
-
-    h1{
-      font-size:34px;
-      margin:0 0 10px;
-      font-weight:900;
-    }
-
-    .sub{
-      color:var(--muted);
+    .step-text strong{
+      display:block;
+      margin-bottom:4px;
       font-size:16px;
-      line-height:1.8;
-      margin-bottom:20px;
+      color:#111;
+    }
+
+    .step-text span{
+      color:#666;
+      font-size:14px;
+      line-height:1.85;
       font-weight:700;
     }
 
-    .highlight{
-      background:#fff4dd;
-      border:1px solid #ffd9b2;
-      padding:14px;
-      border-radius:16px;
-      font-weight:800;
-      color:#8a4d00;
-      margin-bottom:20px;
+    .summary-grid{
+      display:grid;
+      gap:10px;
     }
 
-    .box{
-      text-align:right;
-      background:#fafafa;
-      border-radius:20px;
-      padding:16px;
-      margin-bottom:16px;
-    }
-
-    .row{
+    .summary-item{
       display:flex;
       justify-content:space-between;
-      padding:10px 0;
-      border-bottom:1px solid #eee;
-      font-weight:700;
+      gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid #f1ece3;
+      font-size:15px;
+      font-weight:800;
+      color:#333;
     }
 
-    .row:last-child{border:none}
-
-    .total{
-      font-size:20px;
-      font-weight:900;
+    .summary-item:last-child{
+      border-bottom:none;
     }
 
-    .actions{
+    .summary-item strong{
+      color:#111;
+    }
+
+    .helper{
+      margin-top:16px;
+      background:#fff7ed;
+      border:1px solid #ffd9b2;
+      border-radius:18px;
+      padding:14px;
+      color:#8a4d00;
+      font-size:14px;
+      line-height:1.9;
+      font-weight:800;
+    }
+
+    .cta-row{
       display:flex;
-      gap:10px;
-      margin-top:18px;
+      gap:12px;
       flex-wrap:wrap;
+      justify-content:center;
+      margin-top:24px;
     }
 
     .btn{
-      flex:1;
-      padding:14px;
-      border-radius:14px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:58px;
+      padding:14px 24px;
+      border-radius:18px;
+      font-size:17px;
       font-weight:900;
-      text-align:center;
+      border:none;
+      text-decoration:none;
+      transition:.25s ease;
     }
 
-    .primary{
+    .btn-primary{
       background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
       color:#fff;
+      box-shadow:0 18px 34px rgba(57,157,109,.26);
     }
 
-    .secondary{
+    .btn-secondary{
       background:#111;
       color:#fff;
+      box-shadow:0 14px 28px rgba(0,0,0,.16);
     }
 
-    @media(max-width:640px){
-      .actions{flex-direction:column}
-      h1{font-size:26px}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .mini-note{
+      margin-top:18px;
+      text-align:center;
+      color:#777;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .footer{
+      text-align:center;
+      padding:18px 12px 28px;
+      color:#777;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    @media (max-width:900px){
+      .layout{grid-template-columns:1fr}
+      .title{font-size:32px}
+      .sub{font-size:15px}
+    }
+
+    @media (max-width:640px){
+      .card{padding:20px}
+      .title{font-size:28px}
+      .success-badge{
+        width:78px;
+        height:78px;
+        font-size:34px;
+      }
+      .cta-row{
+        flex-direction:column;
+      }
+      .btn{
+        width:100%;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="top-bar">✅ تم استلام طلبك بنجاح — سنقوم بمراجعته والتواصل معك قريبًا</div>
 
-<div class="top">✅ تم استلام طلبك بنجاح</div>
+  <main class="wrap">
+    <div class="container">
+      <section class="card">
+        <div class="content">
+          <div class="success-badge">✓</div>
+          <h1 class="title">شكرًا لك، تم استلام طلبك</h1>
+          <p class="sub">
+            تم إرسال بياناتك بنجاح، وسيتم مراجعة الطلب والتواصل معك قريبًا لتأكيد التفاصيل.
+            نرجو التأكد من بقاء هاتفك متاحًا للرد.
+          </p>
 
-<div class="container">
-  <div class="card">
+          <div class="status-strip">
+            <div class="status-pill">📦 الطلب قيد المراجعة</div>
+            <div class="status-pill">📞 سيتم التواصل معك قريبًا</div>
+            <div class="status-pill">💵 الدفع عند الاستلام</div>
+          </div>
 
-    <div class="success">✓</div>
+          <div class="layout">
+            <div class="box">
+              <h2>ماذا يحدث بعد ذلك؟</h2>
+              <div class="steps">
+                <div class="step">
+                  <div class="step-num">1</div>
+                  <div class="step-text">
+                    <strong>مراجعة الطلب</strong>
+                    <span>نقوم بمراجعة بياناتك والتأكد من اكتمال معلومات الشحن والطلب.</span>
+                  </div>
+                </div>
 
-    <h1>شكرًا لطلبك 💚</h1>
+                <div class="step">
+                  <div class="step-num">2</div>
+                  <div class="step-text">
+                    <strong>تأكيد الطلب</strong>
+                    <span>سيتم التواصل معك لتأكيد الطلب قبل التجهيز والشحن.</span>
+                  </div>
+                </div>
 
-    <div class="sub">
-      تم استلام طلب <strong>لعبة العصفور الناطق</strong> بنجاح،  
-      سيتم التواصل معك قريبًا لتأكيد الطلب وترتيب الشحن.
+                <div class="step">
+                  <div class="step-num">3</div>
+                  <div class="step-text">
+                    <strong>التجهيز والتوصيل</strong>
+                    <span>بعد التأكيد يتم تجهيز الطلب وإرساله حسب المنطقة التي اخترتها.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="box">
+              <h2>ملخص سريع</h2>
+              <div class="summary-grid">
+                <div class="summary-item">
+                  <span>المنتج</span>
+                  <strong>لعبة العصفور الناطق</strong>
+                </div>
+                <div class="summary-item">
+                  <span>سعر الحبة</span>
+                  <strong>49 شيكل</strong>
+                </div>
+                <div class="summary-item">
+                  <span>عرض قطعتين</span>
+                  <strong>80 شيكل</strong>
+                </div>
+                <div class="summary-item">
+                  <span>طريقة الدفع</span>
+                  <strong>عند الاستلام</strong>
+                </div>
+              </div>
+
+              <div class="helper">
+                🎁 إذا طلبت قطعتين فستحصل على أفضل سعر متاح حاليًا.<br>
+                🚚 مدة التوصيل تعتمد على المنطقة المختارة.<br>
+                📞 يرجى متابعة هاتفك لأن التواصل سيكون على الرقم الذي أدخلته.
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <a href="index.html" class="btn btn-primary">العودة إلى الصفحة الرئيسية</a>
+            <a href="order.html" class="btn btn-secondary">تنفيذ طلب جديد</a>
+          </div>
+
+          <div class="mini-note">جميع الحقوق محفوظة 2026</div>
+        </div>
+      </section>
     </div>
+  </main>
 
-    <div class="highlight">
-      🎁 تذكير: الحبة 49 شيكل — عرض قطعتين 80 شيكل هو الأفضل
-    </div>
+  <footer class="footer">لعبة العصفور الناطق — شكرًا لثقتك بنا</footer>
 
-    <div class="box">
-      <div class="row">
-        <span>الكمية</span>
-        <strong id="q">—</strong>
-      </div>
-      <div class="row">
-        <span>سعر المنتجات</span>
-        <strong id="sub">—</strong>
-      </div>
-      <div class="row">
-        <span>التوفير</span>
-        <strong id="dis">—</strong>
-      </div>
-      <div class="row">
-        <span>التوصيل</span>
-        <strong id="del">—</strong>
-      </div>
-      <div class="row total">
-        <span>المجموع</span>
-        <strong id="tot">—</strong>
-      </div>
-    </div>
-
-    <div class="box">
-      📞 سنتواصل معك لتأكيد الطلب<br>
-      🚚 شحن سريع حسب المنطقة<br>
-      💵 الدفع عند الاستلام<br>
-      🐤 لعبة ممتعة وتعليمية للأطفال
-    </div>
-
-    <div class="actions">
-      <a href="index.html" class="btn primary">العودة للمنتج</a>
-      <a href="https://wa.me/970592533948?text=مرحبًا، أريد متابعة طلبي" target="_blank" class="btn secondary">واتساب</a>
-    </div>
-
-  </div>
-</div>
-
-<script>
-  function f(v){
-    v=Number(v||0);
-    return v+' شيكل';
-  }
-
-  const d = JSON.parse(localStorage.getItem('talkingBirdOrderData')||'{}');
-
-  document.getElementById('q').textContent = d.quantity==2 ? 'قطعتين' : 'حبة';
-  document.getElementById('sub').textContent = f(d.subtotal);
-  document.getElementById('dis').textContent = d.discount ? f(d.discount) : '0 شيكل';
-  document.getElementById('del').textContent = d.delivery ? f(d.delivery) : '—';
-  document.getElementById('tot').textContent = f(d.total);
-</script>
-
+  <script>
+    (function() {
+      try {
+        const orderData = localStorage.getItem('talkingBirdOrderData');
+        if (orderData && typeof fbq === 'function') {
+          const parsed = JSON.parse(orderData);
+          fbq('track', 'Purchase', {
+            content_name: 'لعبة العصفور الناطق',
+            content_category: 'Kids Toy',
+            content_type: 'product',
+            num_items: parsed.quantity || 1,
+            currency: 'ILS',
+            value: parsed.total || 49
+          });
+        }
+      } catch (e) {}
+    })();
+  </script>
 </body>
 </html>
