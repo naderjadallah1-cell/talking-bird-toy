@@ -23,6 +23,8 @@
     fbq('track', 'PageView');
     fbq('track', 'InitiateCheckout', {
       content_name: 'Talking Bird Order Page View',
+      content_category: 'Kids Toy',
+      content_type: 'product',
       currency: 'ILS',
       value: 49
     });
@@ -39,14 +41,20 @@
       --secondary-dark:#399d6d;
       --accent:#ff9b00;
       --success:#0f8f4e;
+      --danger:#b42318;
       --bg:#f6f3eb;
       --white:#ffffff;
       --line:#e8e2d5;
       --shadow:0 18px 40px rgba(0,0,0,.08);
+      --shadow-lg:0 28px 70px rgba(0,0,0,.14);
       --container:1160px;
     }
+
     *{box-sizing:border-box}
-    body,button,input,textarea,select{font-family:'Cairo',Arial,sans-serif}
+    html{scroll-behavior:smooth}
+    body,button,input,textarea,select{
+      font-family:'Cairo',Arial,sans-serif
+    }
     body{
       margin:0;
       color:var(--text);
@@ -65,15 +73,16 @@
       font-size:14px;
       background:#111;
       color:#fff;
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
     }
 
     .header{
       padding:18px 0 8px;
     }
     .header-card{
-      background:rgba(255,255,255,.9);
+      background:rgba(255,255,255,.92);
       border:1px solid rgba(0,0,0,.06);
-      border-radius:24px;
+      border-radius:26px;
       padding:18px;
       box-shadow:var(--shadow);
       display:flex;
@@ -84,7 +93,7 @@
     }
     .brand strong{
       display:block;
-      font-size:24px;
+      font-size:25px;
       font-weight:900;
     }
     .brand span{
@@ -92,6 +101,7 @@
       font-size:14px;
       font-weight:700;
     }
+
     .progress{
       display:flex;
       gap:10px;
@@ -104,11 +114,13 @@
       border:1px solid #e8decc;
       font-size:13px;
       font-weight:900;
+      color:#444;
     }
     .step.active{
       background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
       color:#fff;
       border-color:transparent;
+      box-shadow:0 10px 20px rgba(57,157,109,.22);
     }
 
     .activity-bar{
@@ -138,36 +150,76 @@
     }
 
     .card{
-      background:rgba(255,255,255,.92);
+      background:rgba(255,255,255,.93);
       border:1px solid rgba(0,0,0,.06);
-      border-radius:28px;
+      border-radius:30px;
       padding:24px;
       box-shadow:var(--shadow);
     }
 
     .title{
       margin:0 0 8px;
-      font-size:34px;
+      font-size:36px;
       font-weight:900;
+      color:#111;
     }
     .sub{
       margin:0 0 18px;
       color:var(--muted);
       font-size:15px;
-      line-height:1.9;
+      line-height:1.95;
       font-weight:700;
+    }
+
+    .notice-row{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-bottom:18px;
+    }
+    .notice-item{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:18px;
+      padding:14px;
+      font-size:14px;
+      font-weight:800;
+      color:#333;
+      box-shadow:0 8px 16px rgba(0,0,0,.04);
+      text-align:center;
     }
 
     .product-note{
       margin:0 0 18px;
-      padding:14px;
+      padding:15px;
       background:#fff7ed;
       border:1px solid #ffd9b2;
-      border-radius:18px;
+      border-radius:20px;
       color:#8a4d00;
       font-size:14px;
       font-weight:800;
+      line-height:1.95;
+    }
+
+    .offer-inline{
+      margin:0 0 18px;
+      padding:16px;
+      border-radius:20px;
+      background:linear-gradient(135deg,#111,#2e2e2e);
+      color:#fff;
+      box-shadow:0 18px 34px rgba(0,0,0,.16);
+    }
+    .offer-inline strong{
+      display:block;
+      font-size:18px;
+      margin-bottom:6px;
+    }
+    .offer-inline span{
+      display:block;
+      font-size:14px;
       line-height:1.9;
+      color:rgba(255,255,255,.86);
+      font-weight:700;
     }
 
     .form-grid{
@@ -181,6 +233,7 @@
       margin-bottom:6px;
       font-size:14px;
       font-weight:900;
+      color:#222;
     }
 
     .field{
@@ -203,6 +256,7 @@
       direction:rtl;
       outline:none;
       transition:.2s ease;
+      color:#111;
     }
 
     input:focus,textarea:focus,select:focus{
@@ -213,6 +267,13 @@
     textarea{
       min-height:110px;
       resize:vertical;
+    }
+
+    .helper-line{
+      margin-top:8px;
+      font-size:12px;
+      color:#777;
+      font-weight:800;
     }
 
     .submit-btn{
@@ -227,24 +288,77 @@
       font-weight:900;
       cursor:pointer;
       box-shadow:0 18px 34px rgba(57,157,109,.26);
+      transition:.25s ease;
     }
-
+    .submit-btn:hover{
+      transform:translateY(-2px);
+    }
     .submit-btn:disabled{
       opacity:.7;
       cursor:not-allowed;
+      transform:none;
     }
 
-    .back-link{
-      display:inline-block;
+    .secondary-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
       margin-top:12px;
-      color:#111;
-      font-weight:800;
+    }
+    .secondary-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 16px;
+      background:#111;
+      color:#fff;
+      border-radius:14px;
       font-size:14px;
+      font-weight:900;
+      box-shadow:0 10px 18px rgba(0,0,0,.12);
+    }
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 16px;
+      background:#fff;
+      border:1px solid #e7e0d3;
+      border-radius:14px;
+      color:#111;
+      font-weight:900;
+      font-size:14px;
+    }
+
+    .status-message{
+      margin-top:14px;
+      padding:14px;
+      border-radius:16px;
+      font-size:14px;
+      font-weight:800;
+      display:none;
+      line-height:1.9;
+    }
+    .status-message.success{
+      display:block;
+      background:#eefaf3;
+      border:1px solid #bfe6cf;
+      color:var(--success);
+    }
+    .status-message.error{
+      display:block;
+      background:#fff1f1;
+      border:1px solid #f1c0c0;
+      color:var(--danger);
     }
 
     .summary-box{
       background:linear-gradient(135deg,#fff,#f9fbf7);
       border:1px solid #dee8d9;
+      position:sticky;
+      top:16px;
     }
 
     .summary-head{
@@ -252,7 +366,8 @@
     }
     .summary-head h2{
       margin:0 0 6px;
-      font-size:28px;
+      font-size:29px;
+      color:#111;
     }
     .summary-head p{
       margin:0;
@@ -260,6 +375,28 @@
       font-size:14px;
       font-weight:700;
       line-height:1.8;
+    }
+
+    .summary-highlight{
+      margin-bottom:16px;
+      padding:16px;
+      background:#fff;
+      border:1px solid #e9efe5;
+      border-radius:20px;
+      box-shadow:0 8px 18px rgba(0,0,0,.03);
+    }
+    .summary-highlight strong{
+      display:block;
+      font-size:16px;
+      margin-bottom:6px;
+      color:#111;
+    }
+    .summary-highlight span{
+      display:block;
+      color:#666;
+      font-size:14px;
+      line-height:1.85;
+      font-weight:700;
     }
 
     .summary-row{
@@ -276,12 +413,25 @@
     .summary-row:last-child{border-bottom:none}
     .summary-row strong{font-size:16px}
     .summary-total{
-      font-size:22px;
+      font-size:24px;
       font-weight:900;
       color:#111;
     }
     .discount-row{
       color:var(--success);
+    }
+
+    .offer-badge{
+      margin-top:16px;
+      background:#fff;
+      border:1px dashed #5bbf8a;
+      border-radius:18px;
+      padding:14px;
+      color:#2f7554;
+      font-size:14px;
+      font-weight:900;
+      line-height:1.9;
+      text-align:center;
     }
 
     .helper{
@@ -309,32 +459,35 @@
       font-size:14px;
       font-weight:800;
       color:#333;
+      box-shadow:0 8px 16px rgba(0,0,0,.03);
     }
 
-    .status-message{
-      margin-top:14px;
-      padding:14px;
-      border-radius:16px;
-      font-size:14px;
-      font-weight:800;
-      display:none;
+    .secure-strip{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:16px;
     }
-    .status-message.success{
-      display:block;
-      background:#eefaf3;
-      border:1px solid #bfe6cf;
-      color:#0f8f4e;
-    }
-    .status-message.error{
-      display:block;
-      background:#fff1f1;
-      border:1px solid #f1c0c0;
-      color:#b42318;
+    .secure-item{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:18px;
+      padding:12px;
+      text-align:center;
+      font-size:13px;
+      font-weight:900;
+      color:#444;
     }
 
     @media (max-width:980px){
-      .layout,.form-grid{grid-template-columns:1fr}
-      .title{font-size:28px}
+      .layout,.form-grid,.notice-row,.secure-strip{
+        grid-template-columns:1fr;
+      }
+      .title{font-size:29px}
+      .summary-box{
+        position:relative;
+        top:auto;
+      }
     }
 
     @media (max-width:640px){
@@ -346,6 +499,20 @@
         text-align:center;
         white-space:normal;
         font-size:12px;
+      }
+      .card{
+        padding:18px;
+        border-radius:24px;
+      }
+      .summary-head h2{
+        font-size:25px;
+      }
+      .secondary-actions{
+        flex-direction:column;
+      }
+      .secondary-link,
+      .back-link{
+        width:100%;
       }
     }
   </style>
@@ -377,10 +544,23 @@
     <div class="layout">
       <section class="card">
         <h1 class="title">أكمل طلبك الآن</h1>
-        <p class="sub">املأ البيانات التالية، اختر الكمية والمنطقة، وسيظهر لك السعر النهائي قبل إرسال الطلب.</p>
+        <p class="sub">
+          املأ البيانات التالية، اختر الكمية والمنطقة، وسيظهر لك السعر النهائي مباشرة قبل إرسال الطلب.
+        </p>
+
+        <div class="notice-row">
+          <div class="notice-item">🚚 شحن سريع</div>
+          <div class="notice-item">💵 الدفع عند الاستلام</div>
+          <div class="notice-item">🎁 مناسب كهدية رائعة</div>
+        </div>
 
         <div class="product-note">
           🐤 لعبة العصفور الناطق — لعبة تفاعلية ممتعة تساعد الطفل على الضحك والتعلّم والتواصل، ويمكن ارتداؤها كالساعة أو اللعب بها بشكل منفصل.
+        </div>
+
+        <div class="offer-inline">
+          <strong>العرض الأفضل اليوم</strong>
+          <span>الحبة الواحدة 49 شيكل فقط، وقطعتان بسعر 80 شيكل. كلما زادت الكمية زادت الاستفادة من العرض.</span>
         </div>
 
         <form id="orderForm">
@@ -426,12 +606,17 @@
             <div class="field full">
               <label for="notes">ملاحظات إضافية</label>
               <textarea id="notes" name="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+              <div class="helper-line">يمكنك كتابة أي ملاحظة تتعلق بالتوصيل أو الطلب.</div>
             </div>
           </div>
 
-          <button type="submit" class="submit-btn" id="submitBtn">إرسال الطلب</button>
+          <button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن</button>
           <div id="statusMessage" class="status-message"></div>
-          <a href="index.html" class="back-link">← الرجوع إلى صفحة العرض</a>
+
+          <div class="secondary-actions">
+            <a href="index.html" class="back-link">← الرجوع إلى صفحة العرض</a>
+            <a href="#top" class="secondary-link">✅ طلب مضمون وسريع</a>
+          </div>
         </form>
       </section>
 
@@ -439,6 +624,11 @@
         <div class="summary-head">
           <h2>ملخص الطلب</h2>
           <p>يتم تحديث السعر تلقائيًا حسب الكمية والمنطقة المختارة.</p>
+        </div>
+
+        <div class="summary-highlight">
+          <strong>🎯 أفضل اختيار اليوم</strong>
+          <span>إذا اخترت قطعتين ستحصل على أفضل قيمة مقابل السعر، ومناسب جدًا إذا كان لديك أكثر من طفل أو تريدها كهدية.</span>
         </div>
 
         <div class="summary-row">
@@ -461,6 +651,10 @@
           <strong id="totalPrice">49 شيكل</strong>
         </div>
 
+        <div class="offer-badge" id="offerBadge">
+          🎉 الحبة الواحدة 49 شيكل — جرّب عرض القطعتين لتوفير أكبر
+        </div>
+
         <div class="helper">
           ✅ السعر الأساسي للحبة 49 شيكل<br>
           ✅ عرض خاص: قطعتان بسعر 80 شيكل<br>
@@ -469,9 +663,15 @@
         </div>
 
         <div class="mini-list">
-          <div class="mini-item">🚚 شحن سريع</div>
-          <div class="mini-item">💵 الدفع عند الاستلام</div>
           <div class="mini-item">🐤 لعبة ناطقة وممتعة للأطفال</div>
+          <div class="mini-item">🎶 تجمع بين اللعب والتسلية والتفاعل</div>
+          <div class="mini-item">📦 الطلب يُراجع ثم يتم التواصل لتأكيده</div>
+        </div>
+
+        <div class="secure-strip">
+          <div class="secure-item">🔒 بياناتك آمنة</div>
+          <div class="secure-item">⚡ تأكيد سريع</div>
+          <div class="secure-item">📞 متابعة مباشرة</div>
         </div>
       </aside>
     </div>
@@ -513,12 +713,22 @@
       return { quantity, subtotalBeforeOffer, subtotal, discount, delivery, total };
     }
 
+    function updateOfferBadge(order) {
+      const badge = document.getElementById('offerBadge');
+      if (order.quantity === 2) {
+        badge.textContent = '🔥 ممتاز! اخترت عرض القطعتين وهو الأكثر توفيرًا الآن';
+      } else {
+        badge.textContent = '🎉 الحبة الواحدة 49 شيكل — جرّب عرض القطعتين لتوفير أكبر';
+      }
+    }
+
     function updatePrices() {
       const order = calculateOrder();
       document.getElementById('productPrice').textContent = formatPrice(order.subtotal);
       document.getElementById('discountPrice').textContent = order.discount ? ('- ' + formatPrice(order.discount)) : '0 شيكل';
       document.getElementById('deliveryPrice').textContent = order.delivery ? formatPrice(order.delivery) : '—';
       document.getElementById('totalPrice').textContent = formatPrice(order.total);
+      updateOfferBadge(order);
     }
 
     function showStatus(message, type) {
@@ -528,13 +738,28 @@
     }
 
     async function sendOrderToGoogleSheet(orderData) {
+      const body = new URLSearchParams({
+        name: orderData.name || '',
+        phone: orderData.phone || '',
+        city: orderData.city || '',
+        address: orderData.address || '',
+        quantity: orderData.quantity || '',
+        region: orderData.region || '',
+        notes: orderData.notes || '',
+        subtotal: orderData.subtotal || '',
+        discount: orderData.discount || '',
+        delivery: orderData.delivery || '',
+        total: orderData.total || '',
+        createdAt: orderData.createdAt || ''
+      }).toString();
+
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
         },
-        body: JSON.stringify(orderData)
+        body: body
       });
 
       return { success: true };
@@ -549,7 +774,14 @@
       } catch (e) {}
     }
 
-    document.getElementById('regionSelect').addEventListener('change', updatePrices);
+    document.getElementById('regionSelect').addEventListener('change', function() {
+      updatePrices();
+      trackEvent('AddPaymentInfo', {
+        content_name: 'Region Selected',
+        content_category: 'Kids Toy'
+      });
+    });
+
     document.getElementById('quantitySelect').addEventListener('change', function() {
       updatePrices();
       const order = calculateOrder();
@@ -587,6 +819,11 @@
         createdAt: new Date().toISOString()
       };
 
+      if (!orderData.name || !orderData.phone || !orderData.city || !orderData.address || !orderData.region) {
+        showStatus('يرجى تعبئة جميع الحقول المطلوبة قبل إرسال الطلب.', 'error');
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'جاري إرسال الطلب...';
 
@@ -604,13 +841,22 @@
           value: calc.total
         });
 
+        trackEvent('Purchase', {
+          content_name: 'لعبة العصفور الناطق',
+          content_category: 'Kids Toy',
+          content_type: 'product',
+          num_items: calc.quantity,
+          currency: 'ILS',
+          value: calc.total
+        });
+
         window.location.href = 'thank-you.html';
       } catch (error) {
         console.error(error);
         showStatus('حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى.', 'error');
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'إرسال الطلب';
+        submitBtn.textContent = 'تأكيد الطلب الآن';
       }
     });
 
