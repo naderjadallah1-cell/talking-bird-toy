@@ -48,6 +48,7 @@
       --accent-soft:#fff4dd;
       --success:#0f8f4e;
       --success-soft:#ecfff4;
+      --danger:#b42318;
       --shadow:0 18px 40px rgba(0,0,0,.08);
       --shadow-lg:0 28px 70px rgba(0,0,0,.14);
       --container:1160px;
@@ -483,6 +484,165 @@
     }
     .quick-note{margin-top:8px;font-size:13px;color:rgba(255,255,255,.82);font-weight:700;line-height:1.8}
 
+    .order-section{padding:18px 0 24px}
+    .order-layout{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:18px;
+      align-items:start;
+    }
+    .order-card{
+      background:rgba(255,255,255,.93);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:30px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .order-title{margin:0 0 8px;font-size:34px;font-weight:900}
+    .order-sub{margin:0 0 18px;color:#666;font-size:15px;line-height:1.95;font-weight:700}
+    .order-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .field{
+      display:flex;
+      flex-direction:column;
+    }
+    .field.full{
+      grid-column:1 / -1;
+    }
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-size:14px;
+      font-weight:900;
+    }
+    input,textarea,select{
+      width:100%;
+      padding:15px 14px;
+      border-radius:16px;
+      border:1px solid #d7d7d7;
+      background:#fff;
+      font-size:16px;
+      text-align:right;
+      direction:rtl;
+      outline:none;
+      transition:.2s ease;
+    }
+    input:focus,textarea:focus,select:focus{
+      border-color:var(--secondary);
+      box-shadow:0 0 0 4px rgba(91,191,138,.12);
+    }
+    textarea{
+      min-height:110px;
+      resize:vertical;
+    }
+    .submit-btn{
+      width:100%;
+      margin-top:16px;
+      border:none;
+      border-radius:18px;
+      padding:18px;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      font-size:19px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow:0 18px 34px rgba(57,157,109,.26);
+    }
+    .submit-btn:disabled{
+      opacity:.7;
+      cursor:not-allowed;
+    }
+    .status-message{
+      margin-top:14px;
+      padding:14px;
+      border-radius:16px;
+      font-size:14px;
+      font-weight:800;
+      display:none;
+      line-height:1.9;
+    }
+    .status-message.success{
+      display:block;
+      background:#eefaf3;
+      border:1px solid #bfe6cf;
+      color:var(--success);
+    }
+    .status-message.error{
+      display:block;
+      background:#fff1f1;
+      border:1px solid #f1c0c0;
+      color:var(--danger);
+    }
+    .summary-box{
+      background:linear-gradient(135deg,#fff,#f9fbf7);
+      border:1px solid #dee8d9;
+      position:sticky;
+      top:90px;
+    }
+    .summary-head{
+      margin-bottom:14px;
+    }
+    .summary-head h2{
+      margin:0 0 6px;
+      font-size:28px;
+    }
+    .summary-head p{
+      margin:0;
+      color:#666;
+      font-size:14px;
+      font-weight:700;
+      line-height:1.8;
+    }
+    .summary-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      padding:12px 0;
+      border-bottom:1px solid #f2ede3;
+      font-size:15px;
+      color:#444;
+      font-weight:700;
+    }
+    .summary-row:last-child{border-bottom:none}
+    .summary-total{
+      font-size:22px;
+      font-weight:900;
+      color:#111;
+    }
+    .discount-row{
+      color:var(--success);
+    }
+    .helper{
+      margin-top:16px;
+      padding:14px;
+      background:#fff7ed;
+      border:1px solid #ffd9b2;
+      border-radius:18px;
+      color:#8a4d00;
+      font-size:14px;
+      font-weight:800;
+      line-height:1.9;
+    }
+    .mini-list{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+    }
+    .mini-item{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:18px;
+      padding:14px;
+      font-size:14px;
+      font-weight:800;
+      color:#333;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+
     .sales-popup{
       position:fixed;
       right:18px;
@@ -557,19 +717,20 @@
     .site-footer{text-align:center;padding:22px 16px 110px;color:#777;font-size:14px;font-weight:700}
 
     @media (max-width:980px){
-      .hero-grid,.features-grid,.reviews-grid,.faq-grid,.gallery{grid-template-columns:1fr}
+      .hero-grid,.features-grid,.reviews-grid,.faq-grid,.gallery,.order-layout,.order-grid{grid-template-columns:1fr}
       .trust-strip{grid-template-columns:1fr 1fr}
       .hero-title{font-size:38px}
       .usp-grid{grid-template-columns:1fr}
       .hero-media{min-height:360px;order:-1}
       .sticky-cta{display:block}
       .header-actions .mini-pill{display:none}
+      .summary-box{position:relative;top:auto}
     }
     @media (max-width:640px){
       .shipping-bar{gap:10px;font-size:13px}
       .header-inner{padding:12px 14px}
       .brand strong{font-size:19px}
-      .hero-card,.section-card{border-radius:24px;padding:18px}
+      .hero-card,.section-card,.order-card{border-radius:24px;padding:18px}
       .hero-title{font-size:30px}
       .new-price{font-size:42px}
       .quick-form{flex-direction:column}
@@ -623,7 +784,7 @@
       </div>
       <div class="header-actions">
         <div class="mini-pill">قطعتين بسعر 80 شيكل</div>
-        <a href="order.html" class="header-btn track-initiate-checkout">اطلب الآن</a>
+        <a href="#order-section" class="header-btn track-initiate-checkout">اطلب الآن</a>
       </div>
     </div>
   </header>
@@ -690,8 +851,8 @@
               </div>
 
               <div class="cta-row">
-                <a href="order.html" class="btn btn-primary track-initiate-checkout">🔥 احجز طلبك الآن</a>
-                <a href="order.html" class="btn btn-secondary track-initiate-checkout">عرض الطلب الكامل</a>
+                <a href="#order-section" class="btn btn-primary track-initiate-checkout">🔥 احجز طلبك الآن</a>
+                <a href="#order-section" class="btn btn-secondary track-initiate-checkout">عرض الطلب الكامل</a>
               </div>
               <div class="cta-note">✔ كمية محدودة &nbsp; ✔ شحن سريع &nbsp; ✔ هدية رائعة للأطفال</div>
             </div>
@@ -748,7 +909,7 @@
               <p>يمكن ارتداؤه كالساعة أو اللعب به بشكل منفصل، وحجمه مناسب للأطفال.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">اطلب الآن قبل نفاد الكمية</a></div>
+          <div class="section-cta"><a href="#order-section" class="track-initiate-checkout">اطلب الآن قبل نفاد الكمية</a></div>
         </div>
       </div>
     </section>
@@ -771,7 +932,7 @@
               <p>مناسب جدًا كهدية للأطفال لأنه يجمع بين اللعب والتعليم والموسيقى بشكل جذاب.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">أريد الطلب الآن</a></div>
+          <div class="section-cta"><a href="#order-section" class="track-initiate-checkout">أريد الطلب الآن</a></div>
         </div>
       </div>
     </section>
@@ -797,7 +958,7 @@
               <div class="review-name">محمد</div>
             </div>
           </div>
-          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">احجز لطفلك الآن</a></div>
+          <div class="section-cta"><a href="#order-section" class="track-initiate-checkout">احجز لطفلك الآن</a></div>
         </div>
       </div>
     </section>
@@ -824,7 +985,108 @@
               <p>نعم، تعيد الكلام بصوت مضحك مع حركة في الفم والأجنحة بشكل ممتع للأطفال.</p>
             </div>
           </div>
-          <div class="section-cta"><a href="order.html" class="track-initiate-checkout">انتقل إلى صفحة الطلب</a></div>
+          <div class="section-cta"><a href="#order-section" class="track-initiate-checkout">انتقل إلى الطلب الآن</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-section" id="order-section">
+      <div class="container">
+        <div class="order-layout">
+          <section class="order-card">
+            <h2 class="order-title">أكمل طلبك الآن</h2>
+            <p class="order-sub">املأ البيانات التالية، اختر الكمية والمنطقة، وسيظهر لك السعر النهائي مباشرة قبل إرسال الطلب.</p>
+
+            <form id="orderForm">
+              <div class="order-grid">
+                <div class="field">
+                  <label for="name">الاسم الكامل</label>
+                  <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+                </div>
+
+                <div class="field">
+                  <label for="phone">رقم الهاتف</label>
+                  <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف" required>
+                </div>
+
+                <div class="field">
+                  <label for="city">المدينة</label>
+                  <input type="text" id="city" name="city" placeholder="المدينة" required>
+                </div>
+
+                <div class="field">
+                  <label for="regionSelect">المنطقة</label>
+                  <select name="region" id="regionSelect" required>
+                    <option value="">اختر المنطقة</option>
+                    <option value="الضفة الغربية" data-delivery="20">الضفة الغربية - 20 شيكل</option>
+                    <option value="القدس" data-delivery="30">القدس - 30 شيكل</option>
+                    <option value="الداخل" data-delivery="70">الداخل - 70 شيكل</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="address">العنوان الكامل</label>
+                  <input type="text" id="address" name="address" placeholder="العنوان الكامل" required>
+                </div>
+
+                <div class="field">
+                  <label for="quantitySelect">الكمية</label>
+                  <select name="quantity" id="quantitySelect" required>
+                    <option value="1">حبة واحدة - 49 شيكل</option>
+                    <option value="2">قطعتان - 80 شيكل</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="notes">ملاحظات إضافية</label>
+                  <textarea id="notes" name="notes" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="submit-btn" id="submitBtn">إرسال الطلب الآن</button>
+              <div id="statusMessage" class="status-message"></div>
+            </form>
+          </section>
+
+          <aside class="order-card summary-box">
+            <div class="summary-head">
+              <h2>ملخص الطلب</h2>
+              <p>يتم تحديث السعر تلقائيًا حسب الكمية والمنطقة المختارة.</p>
+            </div>
+
+            <div class="summary-row">
+              <span>سعر المنتجات</span>
+              <strong id="productPrice">49 شيكل</strong>
+            </div>
+
+            <div class="summary-row discount-row">
+              <span>التوفير</span>
+              <strong id="discountPrice">0 شيكل</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>سعر التوصيل</span>
+              <strong id="deliveryPrice">—</strong>
+            </div>
+
+            <div class="summary-row summary-total">
+              <span>المجموع النهائي</span>
+              <strong id="totalPrice">49 شيكل</strong>
+            </div>
+
+            <div class="helper">
+              ✅ السعر الأساسي للحبة 49 شيكل<br>
+              ✅ عرض خاص: قطعتان بسعر 80 شيكل<br>
+              ✅ التوصيل يُحسب حسب المنطقة<br>
+              ✅ الدفع عند الاستلام
+            </div>
+
+            <div class="mini-list">
+              <div class="mini-item">🚚 شحن سريع</div>
+              <div class="mini-item">💵 الدفع عند الاستلام</div>
+              <div class="mini-item">🐤 لعبة ناطقة وممتعة للأطفال</div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -842,12 +1104,16 @@
   </div>
 
   <div class="sticky-cta">
-    <a href="order.html" class="track-initiate-checkout">🔥 اطلب الآن قبل نفاد الكمية</a>
+    <a href="#order-section" class="track-initiate-checkout">🔥 اطلب الآن قبل نفاد الكمية</a>
   </div>
 
   <footer class="site-footer">جميع الحقوق محفوظة 2026</footer>
 
   <script>
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbQtdWiKu9JuP_ftoNpSDVJKTnyLPNZvub_iYfgWv1GP8deH2vgnz4DPsK4M9gkUc6Zg/exec";
+    const singlePrice = 49;
+    const doubleOfferPrice = 80;
+
     function trackEvent(eventName, params = {}) {
       if (typeof fbq === 'function') fbq('track', eventName, params);
     }
@@ -888,7 +1154,176 @@
         value: 49
       });
 
-      window.location.href = 'order.html';
+      document.getElementById('order-section').scrollIntoView({ behavior: 'smooth' });
+
+      setTimeout(function() {
+        document.getElementById('name').value = quickName;
+        document.getElementById('phone').value = quickPhone;
+      }, 300);
+    });
+
+    function formatPrice(value) {
+      const fixed = Number(value).toFixed(2);
+      return fixed.endsWith('.00') ? Number(value).toFixed(0) + ' شيكل' : fixed + ' شيكل';
+    }
+
+    function getQuantity() {
+      return Number(document.getElementById('quantitySelect').value || 1);
+    }
+
+    function getDeliveryPrice() {
+      const regionSelect = document.getElementById('regionSelect');
+      const selectedOption = regionSelect.options[regionSelect.selectedIndex];
+      return selectedOption && selectedOption.dataset.delivery ? Number(selectedOption.dataset.delivery) : 0;
+    }
+
+    function calculateOrder() {
+      const quantity = getQuantity();
+      const subtotalBeforeOffer = quantity * singlePrice;
+      const subtotal = quantity === 2 ? doubleOfferPrice : singlePrice;
+      const discount = quantity === 2 ? (subtotalBeforeOffer - doubleOfferPrice) : 0;
+      const delivery = getDeliveryPrice();
+      const total = subtotal + delivery;
+      return { quantity, subtotal, discount, delivery, total };
+    }
+
+    function updatePrices() {
+      const order = calculateOrder();
+      document.getElementById('productPrice').textContent = formatPrice(order.subtotal);
+      document.getElementById('discountPrice').textContent = order.discount ? ('- ' + formatPrice(order.discount)) : '0 شيكل';
+      document.getElementById('deliveryPrice').textContent = order.delivery ? formatPrice(order.delivery) : '—';
+      document.getElementById('totalPrice').textContent = formatPrice(order.total);
+    }
+
+    function showStatus(message, type) {
+      const statusBox = document.getElementById('statusMessage');
+      statusBox.className = 'status-message ' + type;
+      statusBox.textContent = message;
+    }
+
+    function sendOrderToGoogleSheet(orderData) {
+      return new Promise((resolve, reject) => {
+        try {
+          const iframeName = 'hidden_sheet_iframe';
+          let iframe = document.querySelector('iframe[name="' + iframeName + '"]');
+
+          if (!iframe) {
+            iframe = document.createElement('iframe');
+            iframe.name = iframeName;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+          }
+
+          const form = document.createElement('form');
+          form.method = 'POST';
+          form.action = GOOGLE_SCRIPT_URL;
+          form.target = iframeName;
+          form.style.display = 'none';
+
+          Object.keys(orderData).forEach((key) => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = orderData[key];
+            form.appendChild(input);
+          });
+
+          document.body.appendChild(form);
+          form.submit();
+
+          setTimeout(() => {
+            form.remove();
+            resolve(true);
+          }, 1500);
+        } catch (err) {
+          reject(err);
+        }
+      });
+    }
+
+    const storedLead = localStorage.getItem('talkingBirdQuickLead');
+    if (storedLead) {
+      try {
+        const lead = JSON.parse(storedLead);
+        if (lead.name) document.getElementById('name').value = lead.name;
+        if (lead.phone) document.getElementById('phone').value = lead.phone;
+      } catch (e) {}
+    }
+
+    document.getElementById('regionSelect').addEventListener('change', updatePrices);
+    document.getElementById('quantitySelect').addEventListener('change', function() {
+      updatePrices();
+      const order = calculateOrder();
+      trackEvent('AddToCart', {
+        content_name: 'لعبة العصفور الناطق',
+        content_category: 'Kids Toy',
+        content_type: 'product',
+        num_items: order.quantity,
+        currency: 'ILS',
+        value: order.subtotal
+      });
+    });
+
+    updatePrices();
+
+    document.getElementById('orderForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const submitBtn = document.getElementById('submitBtn');
+      const calc = calculateOrder();
+
+      const orderData = {
+        name: form.name.value.trim(),
+        phone: form.phone.value.trim(),
+        city: form.city.value.trim(),
+        address: form.address.value.trim(),
+        quantity: String(calc.quantity),
+        region: form.region.value.trim(),
+        notes: form.notes.value.trim() || '',
+        subtotal: String(calc.subtotal),
+        delivery: String(calc.delivery),
+        total: String(calc.total)
+      };
+
+      if (!orderData.name || !orderData.phone || !orderData.city || !orderData.address || !orderData.region) {
+        showStatus('يرجى تعبئة جميع الحقول المطلوبة قبل إرسال الطلب.', 'error');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'جاري إرسال الطلب...';
+
+      try {
+        await sendOrderToGoogleSheet(orderData);
+
+        localStorage.setItem('talkingBirdOrderData', JSON.stringify(orderData));
+
+        trackEvent('Lead', {
+          content_name: 'Talking Bird Order Form Submitted',
+          content_category: 'Kids Toy',
+          num_items: calc.quantity,
+          currency: 'ILS',
+          value: calc.total
+        });
+
+        trackEvent('Purchase', {
+          content_name: 'لعبة العصفور الناطق',
+          content_category: 'Kids Toy',
+          content_type: 'product',
+          num_items: calc.quantity,
+          currency: 'ILS',
+          value: calc.total
+        });
+
+        window.location.href = 'thank-you.html';
+      } catch (error) {
+        console.error(error);
+        showStatus('حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى.', 'error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'إرسال الطلب الآن';
+      }
     });
 
     function startCountdown(durationInSeconds) {
@@ -910,31 +1345,11 @@
     startCountdown(2 * 3600 + 15 * 60 + 33);
 
     const popupMessages = [
-      {
-        title: '🔥 عرض سريع',
-        text: 'احصل على لعبة العصفور الناطق الآن بسعر 49 شيكل فقط',
-        time: 'لفترة محدودة'
-      },
-      {
-        title: '🎁 العرض الأفضل',
-        text: 'وفّر أكثر وخذ قطعتين بسعر 80 شيكل فقط',
-        time: 'الأكثر توفيرًا'
-      },
-      {
-        title: '⌚ مناسب كهدية',
-        text: 'لعبة ممتعة وتعليمية للأطفال من عمر 3 سنوات وفوق',
-        time: 'شحن سريع'
-      },
-      {
-        title: '🐤 الأكثر طلبًا',
-        text: 'اختيار قطعتين مناسب للإخوة أو كهدية مزدوجة',
-        time: 'عرض موفّر'
-      },
-      {
-        title: '💥 لا تفوّت العرض',
-        text: 'الحبة الواحدة 49 شيكل فقط — اطلب الآن قبل انتهاء العرض',
-        time: 'كمية محدودة'
-      }
+      { title: '🔥 عرض سريع', text: 'احصل على لعبة العصفور الناطق الآن بسعر 49 شيكل فقط', time: 'لفترة محدودة' },
+      { title: '🎁 العرض الأفضل', text: 'وفّر أكثر وخذ قطعتين بسعر 80 شيكل فقط', time: 'الأكثر توفيرًا' },
+      { title: '⌚ مناسب كهدية', text: 'لعبة ممتعة وتعليمية للأطفال من عمر 3 سنوات وفوق', time: 'شحن سريع' },
+      { title: '🐤 الأكثر طلبًا', text: 'اختيار قطعتين مناسب للإخوة أو كهدية مزدوجة', time: 'عرض موفّر' },
+      { title: '💥 لا تفوّت العرض', text: 'الحبة الواحدة 49 شيكل فقط — اطلب الآن قبل انتهاء العرض', time: 'كمية محدودة' }
     ];
 
     const salesPopup = document.getElementById('salesPopup');
@@ -962,7 +1377,6 @@
     function startPopupLoop() {
       setTimeout(function() {
         showPromoPopup();
-
         setInterval(function() {
           showPromoPopup();
         }, Math.floor(Math.random() * 5000) + 10000);
