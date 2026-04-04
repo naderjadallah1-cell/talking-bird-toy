@@ -1234,7 +1234,7 @@
           setTimeout(() => {
             form.remove();
             resolve(true);
-          }, 1500);
+          }, 1800);
         } catch (err) {
           reject(err);
         }
@@ -1302,15 +1302,6 @@
         trackEvent('Lead', {
           content_name: 'Talking Bird Order Form Submitted',
           content_category: 'Kids Toy',
-          num_items: calc.quantity,
-          currency: 'ILS',
-          value: calc.total
-        });
-
-        trackEvent('Purchase', {
-          content_name: 'لعبة العصفور الناطق',
-          content_category: 'Kids Toy',
-          content_type: 'product',
           num_items: calc.quantity,
           currency: 'ILS',
           value: calc.total
