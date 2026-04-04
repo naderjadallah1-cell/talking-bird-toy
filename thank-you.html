@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>تم استلام طلبك | لعبة العصفور الناطق</title>
-  <meta name="description" content="تم استلام طلبك بنجاح. سنقوم بالتواصل معك قريبًا لتأكيد الطلب." />
+  <meta name="description" content="تم استلام طلبك بنجاح. سنقوم بالتواصل معك قريبًا لتأكيد الطلب وتنسيق التوصيل." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <script>
     !function(f,b,e,v,n,t,s)
@@ -22,200 +22,482 @@
     fbq('init', '536244607937266');
     fbq('track', 'PageView');
   </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=536244607937266&ev=PageView&noscript=1"/>
+  </noscript>
 
   <style>
     :root{
+      --bg:#f6f3eb;
+      --white:#ffffff;
+      --text:#101010;
+      --muted:#5f625f;
+      --line:#e8e2d5;
+      --soft:#f7f1e3;
+      --primary:#111111;
       --secondary:#5bbf8a;
       --secondary-dark:#399d6d;
-      --text:#111;
-      --muted:#666;
+      --accent:#ff9b00;
+      --accent-soft:#fff4dd;
+      --success:#0f8f4e;
+      --success-soft:#ecfff4;
       --shadow:0 18px 40px rgba(0,0,0,.08);
+      --shadow-lg:0 28px 70px rgba(0,0,0,.14);
+      --container:920px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body,button,input,textarea,select{font-family:'Cairo',Arial,sans-serif}
     body{
       margin:0;
-      font-family:'Cairo',Arial,sans-serif;
       color:var(--text);
       background:
         radial-gradient(circle at top right, rgba(91,191,138,.14), transparent 24%),
         radial-gradient(circle at top left, rgba(255,155,0,.10), transparent 18%),
         linear-gradient(180deg,#fbf8f1 0%, #f5f1e7 100%);
+      overflow-x:hidden;
       min-height:100vh;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:var(--container);margin:auto;padding:0 16px}
+
+    .top-ticker{
+      background:linear-gradient(90deg,#111,#1d1d1d,#3d3d3d);
+      color:#fff;
+      overflow:hidden;
+      padding:10px 0;
+      font-size:14px;
+      font-weight:900;
+      direction:ltr;
+      box-shadow:0 10px 24px rgba(0,0,0,.14);
+    }
+    .top-ticker-track{
+      display:flex;
+      width:max-content;
+      gap:44px;
+      white-space:nowrap;
+      animation:ticker 26s linear infinite;
+    }
+    @keyframes ticker{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
+    .shipping-bar{
+      background:#f1ead9;
+      color:#222;
+      padding:12px 16px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      font-size:14px;
+      font-weight:800;
+      border-bottom:1px solid #e7ddc8;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,0,0,.05);
+      box-shadow:0 8px 22px rgba(0,0,0,.04);
+    }
+    .header-inner{
+      max-width:var(--container);
+      margin:auto;
+      padding:14px 16px;
       display:flex;
       align-items:center;
-      justify-content:center;
-      padding:20px;
+      justify-content:space-between;
+      gap:12px;
     }
-    .card{
-      width:100%;
-      max-width:760px;
-      background:rgba(255,255,255,.93);
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand strong{font-size:23px;font-weight:900;color:#111}
+    .brand span{font-size:13px;color:#666;font-weight:700}
+    .mini-pill{
+      background:var(--accent-soft);
+      color:#8a4d00;
+      border:1px solid #ffd9b2;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    .page-wrap{
+      padding:28px 0 42px;
+    }
+
+    .thank-card{
+      background:rgba(255,255,255,.9);
       border:1px solid rgba(0,0,0,.06);
-      border-radius:32px;
-      padding:34px 24px;
-      box-shadow:var(--shadow);
-      text-align:center;
+      border-radius:34px;
+      padding:30px 24px;
+      box-shadow:var(--shadow-lg);
+      position:relative;
+      overflow:hidden;
     }
-    .icon{
-      width:90px;
-      height:90px;
+    .thank-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(91,191,138,.10), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255,155,0,.08), transparent 20%);
+      pointer-events:none;
+    }
+    .thank-inner{
+      position:relative;
+      z-index:1;
+    }
+
+    .success-badge{
+      width:96px;
+      height:96px;
+      margin:0 auto 16px;
       border-radius:50%;
-      margin:0 auto 18px;
       display:flex;
       align-items:center;
       justify-content:center;
       background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
       color:#fff;
-      font-size:42px;
+      font-size:44px;
       font-weight:900;
       box-shadow:0 18px 34px rgba(57,157,109,.26);
     }
-    h1{
+
+    .headline{
       margin:0 0 10px;
-      font-size:36px;
+      text-align:center;
+      font-size:40px;
       font-weight:900;
+      color:#111;
     }
-    p{
-      margin:0 auto 20px;
-      max-width:620px;
-      color:var(--muted);
+
+    .subline{
+      margin:0 auto 18px;
+      max-width:700px;
+      text-align:center;
+      color:#555;
       font-size:17px;
       line-height:1.95;
       font-weight:700;
     }
+
     .status-strip{
       display:flex;
       justify-content:center;
       gap:10px;
       flex-wrap:wrap;
-      margin-bottom:22px;
+      margin-bottom:20px;
     }
     .status-pill{
       background:#fff;
-      border:1px solid #e9e2d7;
-      border-radius:999px;
+      border:1px solid #ebe4d5;
+      color:#222;
       padding:10px 14px;
+      border-radius:999px;
       font-size:13px;
-      font-weight:900;
-      color:#333;
-      box-shadow:0 8px 18px rgba(0,0,0,.05);
+      font-weight:800;
+      box-shadow:0 8px 18px rgba(0,0,0,.04);
     }
-    .summary{
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.02fr .98fr;
+      gap:18px;
+      align-items:start;
       margin-top:18px;
+    }
+
+    .panel{
       background:#fff;
       border:1px solid #ece5d7;
-      border-radius:22px;
-      padding:18px;
-      text-align:right;
+      border-radius:24px;
+      padding:20px;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+
+    .panel h2{
+      margin:0 0 12px;
+      font-size:24px;
+      color:#111;
+    }
+
+    .panel p{
+      margin:0;
+      color:#555;
+      line-height:1.9;
+      font-size:15px;
+      font-weight:700;
+    }
+
+    .summary-box{
       display:none;
     }
-    .summary h3{
-      margin:0 0 12px;
-      font-size:22px;
-    }
-    .row{
+
+    .summary-row{
       display:flex;
       justify-content:space-between;
+      align-items:center;
       gap:10px;
-      padding:10px 0;
+      padding:11px 0;
       border-bottom:1px solid #f1ece3;
+      font-size:15px;
       font-weight:800;
       color:#333;
     }
-    .row:last-child{
+    .summary-row:last-child{
       border-bottom:none;
       font-size:20px;
       font-weight:900;
       color:#111;
     }
-    .helper{
-      margin-top:18px;
-      background:#fff7ed;
-      border:1px solid #ffd9b2;
+
+    .steps{
+      display:grid;
+      gap:12px;
+      margin-top:12px;
+    }
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      background:#fff;
+      border:1px solid #ece5d7;
       border-radius:18px;
       padding:14px;
+    }
+    .step-num{
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:15px;
+      font-weight:900;
+      flex-shrink:0;
+      box-shadow:0 10px 20px rgba(57,157,109,.2);
+    }
+    .step-content strong{
+      display:block;
+      margin-bottom:3px;
+      font-size:15px;
+      color:#111;
+    }
+    .step-content span{
+      color:#666;
+      font-size:14px;
+      line-height:1.85;
+      font-weight:700;
+    }
+
+    .helper-box{
+      margin-top:18px;
+      padding:16px;
+      background:#fff7ed;
+      border:1px solid #ffd9b2;
+      border-radius:20px;
       color:#8a4d00;
       font-size:14px;
-      line-height:1.9;
       font-weight:800;
+      line-height:1.9;
     }
+
     .cta-row{
       display:flex;
-      justify-content:center;
       gap:12px;
       flex-wrap:wrap;
+      justify-content:center;
       margin-top:24px;
     }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-height:56px;
+      min-height:58px;
       padding:14px 22px;
-      border-radius:16px;
+      border-radius:18px;
       font-size:16px;
       font-weight:900;
-      text-decoration:none;
+      border:none;
+      cursor:pointer;
       transition:.25s ease;
+      text-align:center;
     }
     .btn-primary{
       background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
       color:#fff;
       box-shadow:0 18px 34px rgba(57,157,109,.26);
     }
+    .btn-primary:hover{transform:translateY(-2px)}
     .btn-secondary{
       background:#111;
       color:#fff;
       box-shadow:0 14px 28px rgba(0,0,0,.16);
     }
-    .btn:hover{transform:translateY(-2px)}
+    .btn-secondary:hover{transform:translateY(-2px)}
+
+    .footer-note{
+      margin-top:18px;
+      text-align:center;
+      color:#777;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    @media (max-width:980px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+      .headline{
+        font-size:33px;
+      }
+    }
+
     @media (max-width:640px){
-      h1{font-size:29px}
-      p{font-size:15px}
+      .header-inner{padding:12px 14px}
+      .brand strong{font-size:19px}
+      .thank-card{border-radius:24px;padding:22px 16px}
+      .headline{font-size:28px}
+      .subline{font-size:15px}
       .cta-row{flex-direction:column}
       .btn{width:100%}
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="icon">✓</div>
-    <h1>تم استلام طلبك بنجاح</h1>
-    <p>شكرًا لك. تم إرسال طلبك بنجاح، وسيتم التواصل معك قريبًا لتأكيد الطلب والتوصيل. يرجى التأكد من أن هاتفك متاح للرد.</p>
-
-    <div class="status-strip">
-      <div class="status-pill">📦 الطلب قيد المراجعة</div>
-      <div class="status-pill">📞 سيتم التواصل معك قريبًا</div>
-      <div class="status-pill">💵 الدفع عند الاستلام</div>
-    </div>
-
-    <div class="summary" id="orderSummary">
-      <h3>ملخص طلبك</h3>
-      <div class="row"><span>الاسم</span><span id="sumName">—</span></div>
-      <div class="row"><span>الهاتف</span><span id="sumPhone">—</span></div>
-      <div class="row"><span>المدينة</span><span id="sumCity">—</span></div>
-      <div class="row"><span>المنطقة</span><span id="sumRegion">—</span></div>
-      <div class="row"><span>الكمية</span><span id="sumQty">—</span></div>
-      <div class="row"><span>المجموع</span><span id="sumTotal">—</span></div>
-    </div>
-
-    <div class="helper">
-      🚚 سيتم تحديد موعد التوصيل معك بعد تأكيد الطلب.<br>
-      🎁 إذا رغبت بطلب إضافي، يمكنك العودة للصفحة الرئيسية وتقديم طلب جديد.
-    </div>
-
-    <div class="cta-row">
-      <a href="index.html" class="btn btn-primary">العودة للصفحة الرئيسية</a>
-      <a href="index.html#order-section" class="btn btn-secondary">تنفيذ طلب جديد</a>
+  <div class="top-ticker">
+    <div class="top-ticker-track">
+      <span>✅ تم استلام طلبك بنجاح — سيتم التواصل معك قريبًا — الدفع عند الاستلام — شحن سريع</span>
+      <span>✅ تم استلام طلبك بنجاح — سيتم التواصل معك قريبًا — الدفع عند الاستلام — شحن سريع</span>
     </div>
   </div>
 
+  <div class="shipping-bar">
+    <div>📦 الطلب قيد المراجعة</div>
+    <div>📞 سيتم التواصل معك قريبًا</div>
+    <div>💵 الدفع عند الاستلام</div>
+    <div>🚚 شحن سريع</div>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <strong>لعبة العصفور الناطق</strong>
+        <span>تم استلام طلبك بنجاح</span>
+      </div>
+      <div class="mini-pill">شكرًا لثقتك بنا</div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <div class="container">
+      <section class="thank-card">
+        <div class="thank-inner">
+          <div class="success-badge">✓</div>
+
+          <h1 class="headline">تم استلام طلبك بنجاح</h1>
+          <p class="subline">
+            شكرًا لك. تم إرسال طلبك بنجاح، وسيتم التواصل معك خلال وقت قصير لتأكيد الطلب وتنسيق التوصيل. يرجى التأكد من أن هاتفك متاح للرد.
+          </p>
+
+          <div class="status-strip">
+            <div class="status-pill">✅ تم تسجيل الطلب</div>
+            <div class="status-pill">📞 انتظار التأكيد</div>
+            <div class="status-pill">🚚 تجهيز الشحن</div>
+          </div>
+
+          <div class="grid">
+            <div class="panel summary-box" id="orderSummary">
+              <h2>ملخص طلبك</h2>
+              <div class="summary-row">
+                <span>الاسم</span>
+                <strong id="sumName">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>الهاتف</span>
+                <strong id="sumPhone">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>المدينة</span>
+                <strong id="sumCity">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>المنطقة</span>
+                <strong id="sumRegion">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>الكمية</span>
+                <strong id="sumQty">—</strong>
+              </div>
+              <div class="summary-row">
+                <span>المجموع النهائي</span>
+                <strong id="sumTotal">—</strong>
+              </div>
+            </div>
+
+            <div class="panel">
+              <h2>ماذا بعد؟</h2>
+              <div class="steps">
+                <div class="step">
+                  <div class="step-num">1</div>
+                  <div class="step-content">
+                    <strong>مراجعة الطلب</strong>
+                    <span>يتم الآن مراجعة بياناتك والتأكد من تفاصيل الطلب والمنطقة.</span>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <div class="step-num">2</div>
+                  <div class="step-content">
+                    <strong>التواصل معك</strong>
+                    <span>سيتم الاتصال بك لتأكيد الطلب والعنوان المناسب للتسليم.</span>
+                  </div>
+                </div>
+
+                <div class="step">
+                  <div class="step-num">3</div>
+                  <div class="step-content">
+                    <strong>التوصيل والدفع</strong>
+                    <span>بعد التأكيد يتم تجهيز الطلب، والدفع يكون عند الاستلام.</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="helper-box">
+                🎁 إذا رغبت بطلب إضافي، يمكنك العودة إلى الصفحة الرئيسية وتنفيذ طلب جديد.<br>
+                ⏳ يُفضّل إبقاء الهاتف متاحًا خلال الساعات القادمة لتسريع التأكيد.
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <a href="index.html" class="btn btn-primary">العودة للصفحة الرئيسية</a>
+            <a href="index.html#order-section" class="btn btn-secondary">تنفيذ طلب جديد</a>
+          </div>
+
+          <div class="footer-note">جميع الحقوق محفوظة 2026</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
   <script>
     const order = JSON.parse(localStorage.getItem('talkingBirdOrderData') || '{}');
-    const box = document.getElementById('orderSummary');
+    const summaryBox = document.getElementById('orderSummary');
 
     if (order && order.name) {
-      box.style.display = 'block';
+      summaryBox.style.display = 'block';
       document.getElementById('sumName').textContent = order.name || '—';
       document.getElementById('sumPhone').textContent = order.phone || '—';
       document.getElementById('sumCity').textContent = order.city || '—';
