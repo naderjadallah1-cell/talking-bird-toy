@@ -41,9 +41,10 @@
       --accent-soft:#fff4dd;
       --success:#0f8f4e;
       --success-soft:#ecfff4;
+      --success-strong:#0d7e45;
       --shadow:0 18px 40px rgba(0,0,0,.08);
       --shadow-lg:0 28px 70px rgba(0,0,0,.14);
-      --container:920px;
+      --container:1080px;
     }
 
     *{box-sizing:border-box}
@@ -59,6 +60,7 @@
       overflow-x:hidden;
       min-height:100vh;
     }
+
     a{text-decoration:none;color:inherit}
     .container{max-width:var(--container);margin:auto;padding:0 16px}
 
@@ -134,56 +136,65 @@
       padding:28px 0 42px;
     }
 
-    .thank-card{
-      background:rgba(255,255,255,.9);
+    .hero-success{
+      background:rgba(255,255,255,.92);
       border:1px solid rgba(0,0,0,.06);
-      border-radius:34px;
-      padding:30px 24px;
+      border-radius:36px;
+      padding:32px 24px;
       box-shadow:var(--shadow-lg);
       position:relative;
       overflow:hidden;
+      margin-bottom:20px;
     }
-    .thank-card::before{
+    .hero-success::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at top right, rgba(91,191,138,.10), transparent 24%),
+        radial-gradient(circle at top right, rgba(91,191,138,.12), transparent 25%),
         radial-gradient(circle at bottom left, rgba(255,155,0,.08), transparent 20%);
       pointer-events:none;
     }
-    .thank-inner{
+    .hero-inner{
       position:relative;
       z-index:1;
+      text-align:center;
     }
 
     .success-badge{
-      width:96px;
-      height:96px;
-      margin:0 auto 16px;
+      width:110px;
+      height:110px;
+      margin:0 auto 18px;
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
       background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
       color:#fff;
-      font-size:44px;
+      font-size:50px;
       font-weight:900;
-      box-shadow:0 18px 34px rgba(57,157,109,.26);
+      box-shadow:0 20px 36px rgba(57,157,109,.28);
+      position:relative;
+    }
+    .success-badge::after{
+      content:"";
+      position:absolute;
+      inset:-10px;
+      border-radius:50%;
+      border:2px dashed rgba(91,191,138,.35);
     }
 
     .headline{
       margin:0 0 10px;
-      text-align:center;
-      font-size:40px;
+      font-size:42px;
       font-weight:900;
       color:#111;
+      line-height:1.2;
     }
 
     .subline{
       margin:0 auto 18px;
-      max-width:700px;
-      text-align:center;
+      max-width:760px;
       color:#555;
       font-size:17px;
       line-height:1.95;
@@ -195,7 +206,7 @@
       justify-content:center;
       gap:10px;
       flex-wrap:wrap;
-      margin-bottom:20px;
+      margin-bottom:8px;
     }
     .status-pill{
       background:#fff;
@@ -208,46 +219,70 @@
       box-shadow:0 8px 18px rgba(0,0,0,.04);
     }
 
-    .grid{
+    .content-grid{
       display:grid;
-      grid-template-columns:1.02fr .98fr;
+      grid-template-columns:1.06fr .94fr;
       gap:18px;
       align-items:start;
-      margin-top:18px;
     }
 
     .panel{
       background:#fff;
       border:1px solid #ece5d7;
-      border-radius:24px;
-      padding:20px;
+      border-radius:26px;
+      padding:22px;
       box-shadow:0 10px 20px rgba(0,0,0,.04);
     }
 
     .panel h2{
-      margin:0 0 12px;
-      font-size:24px;
+      margin:0 0 14px;
+      font-size:25px;
       color:#111;
     }
 
-    .panel p{
-      margin:0;
-      color:#555;
+    .panel-lead{
+      color:#666;
       line-height:1.9;
-      font-size:15px;
+      font-size:14px;
       font-weight:700;
+      margin:0 0 14px;
     }
 
     .summary-box{
       display:none;
     }
 
+    .summary-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+      flex-wrap:wrap;
+    }
+    .summary-chip{
+      background:var(--success-soft);
+      color:var(--success-strong);
+      border:1px solid #cfead9;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .summary-card{
+      background:linear-gradient(135deg,#fff,#f9fbf7);
+      border:1px solid #e5efe2;
+      border-radius:22px;
+      padding:16px;
+    }
+
     .summary-row{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:10px;
-      padding:11px 0;
+      gap:12px;
+      padding:12px 0;
       border-bottom:1px solid #f1ece3;
       font-size:15px;
       font-weight:800;
@@ -255,9 +290,13 @@
     }
     .summary-row:last-child{
       border-bottom:none;
-      font-size:20px;
+      font-size:21px;
       font-weight:900;
       color:#111;
+    }
+    .summary-row span:first-child{
+      color:#666;
+      font-weight:800;
     }
 
     .steps{
@@ -271,12 +310,17 @@
       align-items:flex-start;
       background:#fff;
       border:1px solid #ece5d7;
-      border-radius:18px;
-      padding:14px;
+      border-radius:20px;
+      padding:15px;
+      transition:.2s ease;
+    }
+    .step:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 24px rgba(0,0,0,.05);
     }
     .step-num{
-      width:36px;
-      height:36px;
+      width:38px;
+      height:38px;
       border-radius:50%;
       background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));
       color:#fff;
@@ -290,7 +334,7 @@
     }
     .step-content strong{
       display:block;
-      margin-bottom:3px;
+      margin-bottom:4px;
       font-size:15px;
       color:#111;
     }
@@ -299,6 +343,37 @@
       font-size:14px;
       line-height:1.85;
       font-weight:700;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    .info-card{
+      background:#fff;
+      border:1px solid #ece5d7;
+      border-radius:20px;
+      padding:16px;
+      text-align:center;
+      box-shadow:0 10px 20px rgba(0,0,0,.04);
+    }
+    .info-card .icon{
+      font-size:24px;
+      margin-bottom:8px;
+    }
+    .info-card strong{
+      display:block;
+      font-size:15px;
+      color:#111;
+      margin-bottom:4px;
+    }
+    .info-card span{
+      color:#666;
+      font-size:13px;
+      font-weight:700;
+      line-height:1.8;
     }
 
     .helper-box{
@@ -325,7 +400,7 @@
       align-items:center;
       justify-content:center;
       min-height:58px;
-      padding:14px 22px;
+      padding:14px 24px;
       border-radius:18px;
       font-size:16px;
       font-weight:900;
@@ -356,22 +431,32 @@
     }
 
     @media (max-width:980px){
-      .grid{
+      .content-grid{
         grid-template-columns:1fr;
       }
       .headline{
-        font-size:33px;
+        font-size:34px;
+      }
+      .info-grid{
+        grid-template-columns:1fr;
       }
     }
 
     @media (max-width:640px){
       .header-inner{padding:12px 14px}
       .brand strong{font-size:19px}
-      .thank-card{border-radius:24px;padding:22px 16px}
-      .headline{font-size:28px}
+      .hero-success,.panel{border-radius:24px}
+      .hero-success{padding:24px 16px}
+      .panel{padding:18px}
+      .headline{font-size:29px}
       .subline{font-size:15px}
       .cta-row{flex-direction:column}
       .btn{width:100%}
+      .success-badge{
+        width:92px;
+        height:92px;
+        font-size:42px;
+      }
     }
   </style>
 </head>
@@ -402,93 +487,124 @@
 
   <main class="page-wrap">
     <div class="container">
-      <section class="thank-card">
-        <div class="thank-inner">
+      <section class="hero-success">
+        <div class="hero-inner">
           <div class="success-badge">✓</div>
 
-          <h1 class="headline">تم استلام طلبك بنجاح</h1>
+          <h1 class="headline">تم تسجيل طلبك بنجاح</h1>
           <p class="subline">
-            شكرًا لك. تم إرسال طلبك بنجاح، وسيتم التواصل معك خلال وقت قصير لتأكيد الطلب وتنسيق التوصيل. يرجى التأكد من أن هاتفك متاح للرد.
+            شكرًا لك. تم إرسال طلبك بنجاح إلى النظام، وسيتم التواصل معك خلال وقت قصير لتأكيد الطلب وتنسيق التوصيل. نرجو إبقاء هاتفك متاحًا للرد لتسريع عملية التأكيد.
           </p>
 
           <div class="status-strip">
-            <div class="status-pill">✅ تم تسجيل الطلب</div>
-            <div class="status-pill">📞 انتظار التأكيد</div>
+            <div class="status-pill">✅ تم إرسال الطلب</div>
+            <div class="status-pill">📞 بانتظار التأكيد</div>
             <div class="status-pill">🚚 تجهيز الشحن</div>
           </div>
-
-          <div class="grid">
-            <div class="panel summary-box" id="orderSummary">
-              <h2>ملخص طلبك</h2>
-              <div class="summary-row">
-                <span>الاسم</span>
-                <strong id="sumName">—</strong>
-              </div>
-              <div class="summary-row">
-                <span>الهاتف</span>
-                <strong id="sumPhone">—</strong>
-              </div>
-              <div class="summary-row">
-                <span>المدينة</span>
-                <strong id="sumCity">—</strong>
-              </div>
-              <div class="summary-row">
-                <span>المنطقة</span>
-                <strong id="sumRegion">—</strong>
-              </div>
-              <div class="summary-row">
-                <span>الكمية</span>
-                <strong id="sumQty">—</strong>
-              </div>
-              <div class="summary-row">
-                <span>المجموع النهائي</span>
-                <strong id="sumTotal">—</strong>
-              </div>
-            </div>
-
-            <div class="panel">
-              <h2>ماذا بعد؟</h2>
-              <div class="steps">
-                <div class="step">
-                  <div class="step-num">1</div>
-                  <div class="step-content">
-                    <strong>مراجعة الطلب</strong>
-                    <span>يتم الآن مراجعة بياناتك والتأكد من تفاصيل الطلب والمنطقة.</span>
-                  </div>
-                </div>
-
-                <div class="step">
-                  <div class="step-num">2</div>
-                  <div class="step-content">
-                    <strong>التواصل معك</strong>
-                    <span>سيتم الاتصال بك لتأكيد الطلب والعنوان المناسب للتسليم.</span>
-                  </div>
-                </div>
-
-                <div class="step">
-                  <div class="step-num">3</div>
-                  <div class="step-content">
-                    <strong>التوصيل والدفع</strong>
-                    <span>بعد التأكيد يتم تجهيز الطلب، والدفع يكون عند الاستلام.</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="helper-box">
-                🎁 إذا رغبت بطلب إضافي، يمكنك العودة إلى الصفحة الرئيسية وتنفيذ طلب جديد.<br>
-                ⏳ يُفضّل إبقاء الهاتف متاحًا خلال الساعات القادمة لتسريع التأكيد.
-              </div>
-            </div>
-          </div>
-
-          <div class="cta-row">
-            <a href="index.html" class="btn btn-primary">العودة للصفحة الرئيسية</a>
-            <a href="index.html#order-section" class="btn btn-secondary">تنفيذ طلب جديد</a>
-          </div>
-
-          <div class="footer-note">جميع الحقوق محفوظة 2026</div>
         </div>
       </section>
+
+      <div class="content-grid">
+        <section class="panel">
+          <h2>ماذا يحدث بعد الآن؟</h2>
+          <p class="panel-lead">هذه هي الخطوات التالية بعد تسجيل طلبك، حتى يصلك المنتج بأسرع وقت ممكن.</p>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <strong>مراجعة بيانات الطلب</strong>
+                <span>يتم الآن التحقق من اسمك، رقم الهاتف، المدينة، المنطقة، وتفاصيل الشحن.</span>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <strong>التواصل معك لتأكيد الطلب</strong>
+                <span>سيتم الاتصال بك لتأكيد الطلب والعنوان النهائي قبل تجهيز الشحنة.</span>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <strong>تجهيز الشحنة والتوصيل</strong>
+                <span>بعد التأكيد، يتم تجهيز الطلب وإرساله، والدفع يكون عند الاستلام.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="icon">📞</div>
+              <strong>تأكيد سريع</strong>
+              <span>سيتم التواصل معك خلال أقرب وقت ممكن</span>
+            </div>
+            <div class="info-card">
+              <div class="icon">💵</div>
+              <strong>الدفع عند الاستلام</strong>
+              <span>ادفع فقط عندما يصلك الطلب</span>
+            </div>
+            <div class="info-card">
+              <div class="icon">🚚</div>
+              <strong>شحن منظم</strong>
+              <span>بعد التأكيد يبدأ تجهيز الطلب مباشرة</span>
+            </div>
+          </div>
+
+          <div class="helper-box">
+            🎁 إذا رغبت بطلب إضافي، يمكنك العودة إلى الصفحة الرئيسية وتنفيذ طلب جديد.<br>
+            ⏳ يُفضّل إبقاء الهاتف متاحًا خلال الساعات القادمة لتسريع التأكيد.<br>
+            ✅ في حال كنت قد أدخلت البيانات بشكل صحيح، فلا تحتاج لإعادة إرسال الطلب مرة أخرى.
+          </div>
+        </section>
+
+        <aside class="panel summary-box" id="orderSummary">
+          <div class="summary-top">
+            <h2>ملخص طلبك</h2>
+            <div class="summary-chip">تم تسجيله بنجاح</div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-row">
+              <span>الاسم</span>
+              <strong id="sumName">—</strong>
+            </div>
+            <div class="summary-row">
+              <span>الهاتف</span>
+              <strong id="sumPhone">—</strong>
+            </div>
+            <div class="summary-row">
+              <span>المدينة</span>
+              <strong id="sumCity">—</strong>
+            </div>
+            <div class="summary-row">
+              <span>المنطقة</span>
+              <strong id="sumRegion">—</strong>
+            </div>
+            <div class="summary-row">
+              <span>العنوان</span>
+              <strong id="sumAddress">—</strong>
+            </div>
+            <div class="summary-row">
+              <span>الكمية</span>
+              <strong id="sumQty">—</strong>
+            </div>
+            <div class="summary-row">
+              <span>المجموع النهائي</span>
+              <strong id="sumTotal">—</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="cta-row">
+        <a href="index.html" class="btn btn-primary">العودة للصفحة الرئيسية</a>
+        <a href="index.html#order-section" class="btn btn-secondary">تنفيذ طلب جديد</a>
+      </div>
+
+      <div class="footer-note">جميع الحقوق محفوظة 2026</div>
     </div>
   </main>
 
@@ -502,6 +618,7 @@
       document.getElementById('sumPhone').textContent = order.phone || '—';
       document.getElementById('sumCity').textContent = order.city || '—';
       document.getElementById('sumRegion').textContent = order.region || '—';
+      document.getElementById('sumAddress').textContent = order.address || '—';
       document.getElementById('sumQty').textContent = order.quantity == 2 ? 'قطعتان' : 'حبة واحدة';
       document.getElementById('sumTotal').textContent = (order.total || '—') + ' شيكل';
 
