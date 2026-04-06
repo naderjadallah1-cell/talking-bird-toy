@@ -836,7 +836,7 @@
               <div class="usp-grid">
                 <div class="usp-item">✅ تسجيل وترديد الكلام والأصوات فورًا</div>
                 <div class="usp-item">✅ أجنحة تتحرك وفم يتفاعل أثناء الكلام</div>
-                <div class="usp-item">✅ يمكن ارتداؤه كالساعة أو اللعب به منفصلًا</div>
+                <div class="usp-item">✅ يمكن ارتداؤه كالساعة أو اللعب به بشكل منفصل</div>
                 <div class="usp-item">✅ مناسب كهدية ممتعة للأطفال</div>
               </div>
 
@@ -906,7 +906,7 @@
             </div>
             <div class="feature">
               <h3>سهل الحمل والاستخدام</h3>
-              <p>يمكن ارتداؤه كالساعة أو اللعب به بشكل منفصل، وحجمه مناسب للأطفال.</p>
+              <p>يمكن ارتداؤه كالساعة أو اللعب به بشكل مستقل، وحجمه مناسب للأطفال.</p>
             </div>
           </div>
           <div class="section-cta"><a href="#order-section" class="track-initiate-checkout">اطلب الآن قبل نفاد الكمية</a></div>
@@ -1201,44 +1201,17 @@
       statusBox.textContent = message;
     }
 
-    function sendOrderToGoogleSheet(orderData) {
-      return new Promise((resolve, reject) => {
-        try {
-          const iframeName = 'hidden_sheet_iframe';
-          let iframe = document.querySelector('iframe[name="' + iframeName + '"]');
-
-          if (!iframe) {
-            iframe = document.createElement('iframe');
-            iframe.name = iframeName;
-            iframe.style.display = 'none';
-            document.body.appendChild(iframe);
-          }
-
-          const form = document.createElement('form');
-          form.method = 'POST';
-          form.action = GOOGLE_SCRIPT_URL;
-          form.target = iframeName;
-          form.style.display = 'none';
-
-          Object.keys(orderData).forEach((key) => {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = key;
-            input.value = orderData[key];
-            form.appendChild(input);
-          });
-
-          document.body.appendChild(form);
-          form.submit();
-
-          setTimeout(() => {
-            form.remove();
-            resolve(true);
-          }, 1800);
-        } catch (err) {
-          reject(err);
-        }
+    async function sendOrderToGoogleSheet(orderData) {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8'
+        },
+        body: JSON.stringify(orderData)
       });
+
+      return response;
     }
 
     const storedLead = localStorage.getItem('talkingBirdQuickLead');
@@ -1295,9 +1268,9 @@
       submitBtn.textContent = 'جاري إرسال الطلب...';
 
       try {
-        await sendOrderToGoogleSheet(orderData);
-
         localStorage.setItem('talkingBirdOrderData', JSON.stringify(orderData));
+
+        await sendOrderToGoogleSheet(orderData);
 
         trackEvent('Lead', {
           content_name: 'Talking Bird Order Form Submitted',
@@ -1307,7 +1280,11 @@
           value: calc.total
         });
 
-        window.location.href = 'thank-you.html';
+        showStatus('تم إرسال الطلب بنجاح، سيتم تحويلك الآن...', 'success');
+
+        setTimeout(function() {
+          window.location.href = 'thank-you.html';
+        }, 700);
       } catch (error) {
         console.error(error);
         showStatus('حدث خطأ أثناء إرسال الطلب، حاول مرة أخرى.', 'error');
