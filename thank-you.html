@@ -609,6 +609,20 @@
   </main>
 
   <script>
+    function formatShekel(value) {
+      const num = Number(value);
+      if (Number.isNaN(num)) return "—";
+      const fixed = num.toFixed(2);
+      return fixed.endsWith(".00") ? num.toFixed(0) + " شيكل" : fixed + " شيكل";
+    }
+
+    function getQtyLabel(qty) {
+      const q = Number(qty);
+      if (q === 2) return "قطعتان";
+      if (q === 1) return "حبة واحدة";
+      return qty ? qty + " قطع" : "—";
+    }
+
     const order = JSON.parse(localStorage.getItem('talkingBirdOrderData') || '{}');
     const summaryBox = document.getElementById('orderSummary');
 
@@ -619,8 +633,8 @@
       document.getElementById('sumCity').textContent = order.city || '—';
       document.getElementById('sumRegion').textContent = order.region || '—';
       document.getElementById('sumAddress').textContent = order.address || '—';
-      document.getElementById('sumQty').textContent = order.quantity == 2 ? 'قطعتان' : 'حبة واحدة';
-      document.getElementById('sumTotal').textContent = (order.total || '—') + ' شيكل';
+      document.getElementById('sumQty').textContent = getQtyLabel(order.quantity);
+      document.getElementById('sumTotal').textContent = formatShekel(order.total);
 
       if (typeof fbq === 'function' && order.total) {
         fbq('track', 'Purchase', {
